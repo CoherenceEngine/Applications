@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coherence Labs IP | Patent Portfolio & Licensing Platform</title>
+  <title>Coherence Labs IP</title>
   <style>
     :root {
-      --bg: #07111f;
-      --bg-2: #0b1830;
-      --panel: rgba(13, 25, 48, 0.78);
-      --panel-2: rgba(18, 34, 64, 0.72);
-      --line: rgba(151, 177, 255, 0.16);
-      --text: #eaf1ff;
-      --muted: #a8b6d7;
-      --soft: #7f93bc;
-      --accent: #8bb6ff;
-      --accent-2: #c9dcff;
-      --glow: 0 20px 60px rgba(59, 108, 223, 0.18);
-      --radius: 22px;
+      --bg: #08101c;
+      --bg-soft: #0d1626;
+      --panel: rgba(18, 29, 47, 0.82);
+      --panel-strong: rgba(20, 34, 56, 0.96);
+      --line: rgba(160, 184, 214, 0.16);
+      --line-strong: rgba(160, 184, 214, 0.28);
+      --text: #ecf3ff;
+      --muted: #a7b8d4;
+      --soft: #c9d7ee;
+      --accent: #78a7ff;
+      --accent-2: #6de1d2;
       --max: 1240px;
+      --radius: 24px;
+      --shadow: 0 24px 80px rgba(0,0,0,0.35);
     }
 
     * { box-sizing: border-box; }
@@ -27,921 +28,516 @@
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 15% 15%, rgba(71, 111, 207, 0.16), transparent 30%),
-        radial-gradient(circle at 85% 12%, rgba(144, 179, 255, 0.10), transparent 24%),
-        radial-gradient(circle at 50% 100%, rgba(61, 96, 170, 0.18), transparent 34%),
-        linear-gradient(180deg, #050c17 0%, #081120 45%, #07101d 100%);
+        radial-gradient(circle at top right, rgba(120,167,255,0.14), transparent 28%),
+        radial-gradient(circle at 20% 10%, rgba(109,225,210,0.08), transparent 24%),
+        linear-gradient(180deg, #07101b 0%, #091321 45%, #07101a 100%);
       color: var(--text);
       line-height: 1.5;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(4, 10, 20, 0.72);
-      border-bottom: 1px solid rgba(151, 177, 255, 0.08);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 16px 0;
-    }
-
-    .logo-group {
-      min-width: 220px;
-    }
-
-    .logo-title {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-
-    .logo-subtitle {
-      margin-top: 4px;
-      font-size: 0.76rem;
-      color: var(--soft);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .main-nav a {
-      font-size: 0.94rem;
-      color: var(--muted);
-      transition: color 0.2s ease;
-    }
-
-    .main-nav a:hover { color: var(--text); }
-
-    .button,
-    .button-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 18px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      cursor: pointer;
-    }
-
-    .button {
-      background: linear-gradient(135deg, rgba(140, 182, 255, 0.95), rgba(201, 220, 255, 0.92));
-      color: #07101b;
-      box-shadow: 0 12px 30px rgba(130, 171, 255, 0.24);
-    }
-
-    .button-secondary {
-      border-color: rgba(151, 177, 255, 0.2);
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--text);
-    }
-
-    .button:hover,
-    .button-secondary:hover {
-      transform: translateY(-1px);
-    }
-
-    section {
-      padding: 92px 0;
-      position: relative;
-    }
-
-    .section-intro {
-      max-width: 760px;
-      margin-bottom: 34px;
-    }
-
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 88px 0; position: relative; }
+    .section-head { max-width: 780px; margin-bottom: 32px; }
     .eyebrow {
       display: inline-block;
-      margin-bottom: 14px;
-      font-size: 0.78rem;
+      font-size: 12px;
       font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent);
+      color: var(--accent-2);
+      margin-bottom: 14px;
     }
-
-    h1, h2, h3, h4 {
-      margin: 0;
-      letter-spacing: -0.03em;
-      line-height: 1.08;
-    }
-
+    h1, h2, h3, h4, p { margin: 0; }
     h1 {
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      max-width: 760px;
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 900px;
     }
-
     h2 {
-      font-size: clamp(2rem, 3vw, 3rem);
-      max-width: 880px;
+      font-size: clamp(1.9rem, 3vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
     }
-
     h3 {
-      font-size: 1.18rem;
-      margin-bottom: 12px;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
     }
+    .subhead, .lead, .muted { color: var(--muted); }
+    .subhead { font-size: 1.05rem; max-width: 760px; }
+    .lead { font-size: 1.08rem; }
 
-    p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
+    .nav {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 13, 24, 0.72);
+      border-bottom: 1px solid rgba(160, 184, 214, 0.08);
     }
+    .nav-inner {
+      min-height: 74px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand { font-weight: 700; letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 22px; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem; }
 
     .hero {
-      padding-top: 72px;
-      padding-bottom: 86px;
+      padding: 78px 0 42px;
     }
-
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 34px;
-      align-items: stretch;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 30px;
+      align-items: start;
     }
-
-    .hero-copy {
-      font-size: 1.08rem;
-      max-width: 760px;
-      margin-top: 20px;
+    .hero-copy { padding-top: 18px; }
+    .hero-copy .subhead { margin-top: 20px; }
+    .cta-row {
+      display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px;
     }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 18px; border-radius: 999px; font-weight: 600;
+      border: 1px solid var(--line-strong); transition: 180ms ease;
     }
-
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 34px;
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(120,167,255,0.22), rgba(109,225,210,0.16));
+      border-color: rgba(120,167,255,0.28);
+      box-shadow: 0 10px 30px rgba(120,167,255,0.10);
     }
+    .btn.secondary { color: var(--soft); background: rgba(255,255,255,0.02); }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(160,184,214,0.34); }
 
-    .card,
     .panel {
-      background: linear-gradient(180deg, rgba(16, 31, 56, 0.9), rgba(11, 22, 42, 0.82));
+      background: linear-gradient(180deg, rgba(15, 24, 40, 0.9), rgba(11, 20, 34, 0.86));
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      box-shadow: var(--glow);
+      box-shadow: var(--shadow);
     }
-
-    .metric-card {
-      padding: 20px;
-      min-height: 146px;
-    }
-
-    .metric-value {
-      font-size: 1.45rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--accent-2);
-    }
-
-    .metric-text {
-      font-size: 0.95rem;
-    }
-
-    .hero-right {
-      display: grid;
-      gap: 18px;
-    }
-
-    .hero-visual,
-    .hero-note {
-      padding: 28px;
-      min-height: 240px;
-    }
-
-    .hero-visual {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .hero-visual::before,
-    .hero-visual::after {
+    .hero-panel { padding: 28px; position: relative; overflow: hidden; }
+    .hero-panel::before {
       content: "";
-      position: absolute;
-      border-radius: 50%;
+      position: absolute; inset: -20% auto auto -10%;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(120,167,255,0.18), transparent 68%);
       pointer-events: none;
     }
 
-    .hero-visual::before {
-      width: 240px;
-      height: 240px;
-      top: -80px;
-      right: -40px;
-      background: radial-gradient(circle, rgba(138, 180, 255, 0.22), transparent 68%);
+    .stats-grid, .grid-2, .grid-3, .grid-4 {
+      display: grid; gap: 18px;
     }
+    .stats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
 
-    .hero-visual::after {
-      width: 320px;
-      height: 320px;
-      bottom: -140px;
-      left: -60px;
-      background: radial-gradient(circle, rgba(87, 121, 214, 0.16), transparent 70%);
-    }
-
-    .visual-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .visual-chip {
-      padding: 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(151, 177, 255, 0.14);
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--accent-2);
-      font-size: 0.82rem;
-    }
-
-    .thesis-grid,
-    .assets-grid,
-    .applications-grid,
-    .revenue-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .thesis-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .thesis-card,
-    .asset-card,
-    .application-card,
-    .revenue-panel,
-    .roadmap-step,
-    .structure-box {
-      padding: 24px;
-    }
-
-    .asset-card {
-      min-height: 230px;
-    }
-
-    .assets-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .asset-tags,
-    .mini-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .tag {
-      font-size: 0.78rem;
-      padding: 8px 10px;
-      border-radius: 999px;
-      color: var(--accent-2);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(151, 177, 255, 0.12);
-    }
-
-    .licensing-wedge-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .wedge-main,
-    .wedge-side {
-      padding: 28px;
-    }
-
-    .bullet-list {
-      margin: 18px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .bullet-list li + li { margin-top: 12px; }
-
-    .applications-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .buyer-line {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(151, 177, 255, 0.12);
-      font-size: 0.9rem;
-      color: var(--soft);
-    }
-
-    .revenue-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .sub-label {
-      display: block;
-      margin-top: 18px;
-      margin-bottom: 6px;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .roadmap-track {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .step-number {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
-    }
-
-    .structure-layout {
-      display: grid;
-      gap: 18px;
-    }
-
-    .structure-top,
-    .structure-middle,
-    .structure-bottom {
-      display: grid;
-      gap: 18px;
-      justify-content: center;
-    }
-
-    .structure-top { grid-template-columns: minmax(220px, 320px); }
-    .structure-middle { grid-template-columns: repeat(3, minmax(180px, 1fr)); }
-    .structure-bottom { grid-template-columns: repeat(4, minmax(160px, 1fr)); }
-
-    .structure-box {
-      text-align: center;
-      min-height: 108px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    .faq-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .faq-item {
-      border-radius: 18px;
+    .stat-card, .card, .matrix-card, .board, .faq-item, .chip-wrap, .step {
+      background: var(--panel);
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(16, 31, 56, 0.78), rgba(11, 22, 42, 0.7));
-      padding: 18px 20px;
+      border-radius: 22px;
+    }
+    .stat-card { padding: 20px; }
+    .stat-card .label { color: var(--muted); font-size: 0.82rem; margin-bottom: 6px; }
+    .stat-card strong { font-size: 1.05rem; letter-spacing: -0.02em; }
+
+    .chip-wrap { padding: 18px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .chip {
+      padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line);
+      color: var(--soft); background: rgba(255,255,255,0.02); font-size: 0.92rem;
     }
 
-    .faq-item summary {
-      list-style: none;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--text);
+    .card, .board, .faq-item, .step, .matrix-card { padding: 22px; }
+    .meta { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.93rem; }
+    .meta strong { display: block; color: var(--soft); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 8px 0 6px; }
+    .stack > * + * { margin-top: 14px; }
+
+    .claim-row, .faq-item, .step, .matrix-card, .board { position: relative; }
+    .claim-row::before, .step::before {
+      content: ""; position: absolute; top: 22px; left: 22px; width: 44px; height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+    .claim-row, .step { padding-top: 34px; }
+
+    .maturity-table {
+      overflow: hidden; border-radius: 22px; border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .maturity-head, .maturity-row {
+      display: grid; grid-template-columns: 1.3fr repeat(4, minmax(0, 1fr));
+    }
+    .maturity-head { background: rgba(255,255,255,0.02); color: var(--soft); font-weight: 600; }
+    .maturity-head div, .maturity-row div { padding: 16px 18px; border-bottom: 1px solid var(--line); }
+    .maturity-row:last-child div { border-bottom: 0; }
+    .yes { color: var(--accent-2); }
+    .partial { color: #ffd27a; }
+    .no { color: var(--muted); }
+
+    .matrix-list { display: grid; gap: 14px; }
+    .matrix-card strong.status { display: inline-block; margin-top: 12px; color: var(--accent-2); font-size: 0.92rem; }
+
+    .domain-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+    .domain-chip {
+      padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02); color: var(--soft);
     }
 
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-answer {
-      padding-top: 12px;
+    .checklist { display: grid; gap: 12px; margin: 20px 0 28px; }
+    .check {
+      padding: 12px 14px; border-radius: 16px; border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02); color: var(--soft);
+    }
+
+    .footer {
+      padding: 36px 0 52px; border-top: 1px solid rgba(160,184,214,0.10);
       color: var(--muted);
     }
-
-    .final-cta {
-      padding-top: 40px;
-    }
-
-    .final-cta-box {
-      padding: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .final-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .site-footer {
-      padding: 28px 0 50px;
-      border-top: 1px solid rgba(151, 177, 255, 0.08);
-    }
-
     .footer-inner {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
+      display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap;
     }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
 
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      color: var(--soft);
-      font-size: 0.92rem;
+    @media (max-width: 1080px) {
+      .hero-grid, .grid-4 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .maturity-head, .maturity-row { grid-template-columns: 1.4fr repeat(4, minmax(120px, 1fr)); }
     }
-
-    .muted-small {
-      margin-top: 8px;
-      font-size: 0.9rem;
-      color: var(--soft);
-    }
-
-    @media (max-width: 1160px) {
-      .hero-grid,
-      .licensing-wedge-grid,
-      .revenue-grid,
-      .thesis-grid,
-      .assets-grid,
-      .applications-grid,
-      .roadmap-track {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .hero-metrics {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .structure-middle,
-      .structure-bottom {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
     @media (max-width: 760px) {
-      .header-inner,
-      .main-nav,
-      .hero-grid,
-      .thesis-grid,
-      .assets-grid,
-      .applications-grid,
-      .revenue-grid,
-      .licensing-wedge-grid,
-      .roadmap-track,
-      .hero-metrics,
-      .structure-middle,
-      .structure-bottom,
-      .final-cta-box {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .main-nav {
-        display: none;
-      }
-
-      section { padding: 72px 0; }
       .container { width: min(var(--max), calc(100% - 24px)); }
-      .hero-visual,
-      .hero-note { min-height: auto; }
+      .section { padding: 64px 0; }
+      .nav-links { display: none; }
+      .stats-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .maturity-table { overflow-x: auto; }
+      .maturity-head, .maturity-row { min-width: 760px; }
+      .cta-row { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo-group">
-        <div class="logo-title">Coherence Labs IP</div>
-        <div class="logo-subtitle">Patent Portfolio & Licensing Platform</div>
-      </div>
-      <nav class="main-nav">
-        <a href="#thesis">Portfolio Thesis</a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Coherence Labs IP</div>
+      <div class="nav-links">
         <a href="#assets">Patent Assets</a>
-        <a href="#applications">Applications</a>
+        <a href="#verification">Verification</a>
         <a href="#revenue">Revenue Architecture</a>
         <a href="#licensing">Licensing</a>
         <a href="#faq">Investor FAQ</a>
-      </nav>
-      <div class="header-cta">
-        <a class="button" href="#final-cta">Request Licensing Deck</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Coherence Labs IP</div>
+        <h1>A patent-led licensing company building protected system intelligence across enterprise, infrastructure, AI, energy, batteries, food, agriculture, and sensing.</h1>
+        <p class="subhead">Coherence Labs IP is structured as an IP-first company built around a protected coherence-based method with multiple licensing, partnership, and downstream deployment pathways.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#licensing">Request Licensing Brief</a>
+          <a class="btn secondary" href="#partner">Explore Strategic Partnership</a>
+        </div>
+      </div>
+      <div class="hero-panel panel">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="label">Patent Position</div>
+            <strong>Multi-domain</strong>
+          </div>
+          <div class="stat-card">
+            <div class="label">Licensing Model</div>
+            <strong>IP-first</strong>
+          </div>
+          <div class="stat-card">
+            <div class="label">Validation Base</div>
+            <strong>Open-data plus modeled proof</strong>
+          </div>
+          <div class="stat-card">
+            <div class="label">Commercial Path</div>
+            <strong>Pilot to license</strong>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-left">
-          <div class="eyebrow">Patent Portfolio, Licensing Platform</div>
-          <h1>Foundational IP for Coherence-Based Computing, Control, and Optimization</h1>
-          <p class="hero-copy">
-            Coherence Labs IP is building a patent-backed portfolio around a new coherence computation and control layer for intelligent systems. The portfolio is designed to support monitoring, prediction, optimization, and control across enterprise software, infrastructure, industrial systems, embedded environments, biological sensing, food systems, agriculture, logistics, and next-generation computing contexts.
-          </p>
-          <div class="hero-actions">
-            <a class="button" href="#assets">Explore Patent Assets</a>
-            <a class="button-secondary" href="#licensing">Discuss Licensing Partnership</a>
-          </div>
-          <div class="hero-metrics">
-            <div class="card metric-card">
-              <div class="metric-value">20 Domains</div>
-              <p class="metric-text">Addressable commercial pathways across the portfolio</p>
-            </div>
-            <div class="card metric-card">
-              <div class="metric-value">Multiple Patent Families</div>
-              <p class="metric-text">Expandable claim surfaces built from one protected technical core</p>
-            </div>
-            <div class="card metric-card">
-              <div class="metric-value">Licensing + Software</div>
-              <p class="metric-text">Monetization can include licensing, SaaS, integration, and strategic partnerships</p>
-            </div>
-            <div class="card metric-card">
-              <div class="metric-value">Holdco Structure</div>
-              <p class="metric-text">IP is positioned to be owned centrally and licensed downstream</p>
-            </div>
-          </div>
-        </div>
+  <section class="section" id="verification">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Verification Layer</div>
+        <h2>What has been protected, tested, and prepared for commercialization</h2>
+        <p class="subhead">The company is being built through a staged proof stack that separates protected invention, modeled validation, open-data demonstration, and partner-ready commercialization.</p>
+      </div>
+      <div class="chip-wrap">
+        <div class="chip">Patent Position, Filed</div>
+        <div class="chip">Claim Architecture, Mapped</div>
+        <div class="chip">Open-Data POCs, Completed</div>
+        <div class="chip">Licensing Structure, Designed</div>
+        <div class="chip">Pilot Programs, Ready</div>
+        <div class="chip">Diligence Materials, In Progress</div>
+      </div>
+    </div>
+  </section>
 
-        <div class="hero-right">
-          <div class="card hero-visual">
-            <div>
-              <div class="eyebrow">Portfolio Overview</div>
-              <h3>A patent-backed coherence engine designed for licensing, cross-industry deployment, and downstream operating applications.</h3>
-            </div>
-            <div class="visual-grid">
-              <div class="visual-chip">Core IP</div>
-              <div class="visual-chip">Signal Layer</div>
-              <div class="visual-chip">Licensing Rights</div>
-              <div class="visual-chip">Enterprise Systems</div>
-              <div class="visual-chip">Energy</div>
-              <div class="visual-chip">Agriculture</div>
-            </div>
-          </div>
-          <div class="card hero-note">
-            <div class="eyebrow">Why this page matters</div>
-            <h3>This is a patent company story, not a single-product story.</h3>
-            <p>
-              The portfolio is being developed for licensing, strategic partnerships, and long-term enterprise value creation.
-            </p>
-          </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Lead Commercial Wedge</div>
+        <h2>Start with one clear licensing entry point</h2>
+        <p class="subhead">The first commercialization path is enterprise and operational systems, where instability, inefficiency, and hidden drift can be tied to measurable buyer outcomes.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Clear KPI environments</h3>
+          <p class="muted">Enterprise systems provide defined operating metrics, making proof easier to structure and buyer conversations easier to anchor.</p>
+        </div>
+        <div class="card">
+          <h3>Faster pilot design</h3>
+          <p class="muted">Operational workflows allow for narrower, cleaner validation scopes that can convert into paid engagements more quickly.</p>
+        </div>
+        <div class="card">
+          <h3>Direct path to revenue</h3>
+          <p class="muted">The lead wedge supports pilot, deployment, and annual licensing pathways without requiring every application area to mature at once.</p>
         </div>
       </div>
-    </section>
-
-    <section id="thesis">
-      <div class="container">
-        <div class="section-intro">
-          <div class="eyebrow">Portfolio Thesis</div>
-          <h2>Why this patent portfolio can create enterprise value</h2>
-          <p>
-            The value of the portfolio is not limited to one product. It comes from a protected computational core that can be deployed across multiple commercial environments while remaining centralized at the IP layer.
-          </p>
-        </div>
-        <div class="thesis-grid">
-          <article class="card thesis-card">
-            <h3>Core Asset Leverage</h3>
-            <p>One protected coherence computation and control architecture can support multiple commercial implementations across software, infrastructure, devices, and technical operating environments.</p>
-          </article>
-          <article class="card thesis-card">
-            <h3>Revenue Optionality</h3>
-            <p>The portfolio can be monetized through licensing, software deployment, integration partnerships, and downstream operating companies.</p>
-          </article>
-          <article class="card thesis-card">
-            <h3>Strategic Defensibility</h3>
-            <p>Enterprise value increases when patents, implementation logic, and commercial rights remain controlled at the holdco level.</p>
-          </article>
-        </div>
+      <div class="cta-row" style="margin-top:24px;">
+        <a class="btn primary" href="#licensing">Discuss Licensing Evaluation</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="assets">
-      <div class="container">
-        <div class="section-intro">
-          <div class="eyebrow">Patent Assets</div>
-          <h2>The core patent assets to feature first</h2>
-          <p>
-            These are the most commercially legible assets in the portfolio, selected to show both investor value and partner applicability.
-          </p>
-        </div>
-        <div class="assets-grid">
-          <article class="card asset-card">
-            <h3>Coherence Computation Engine</h3>
-            <p>A protected computational method for transforming time-series inputs into a coherence metric used for diagnostics, prediction, classification, and optimization.</p>
-            <div class="asset-tags"><span class="tag">Licensing</span><span class="tag">Analytics</span><span class="tag">Core IP</span></div>
-          </article>
-          <article class="card asset-card">
-            <h3>Cross-Domain Control Architecture</h3>
-            <p>A system for measuring coherence and computing actions under real-world constraints across dynamic technical environments.</p>
-            <div class="asset-tags"><span class="tag">Control</span><span class="tag">Optimization</span><span class="tag">Systems</span></div>
-          </article>
-          <article class="card asset-card">
-            <h3>Coherence Metric and State Classification</h3>
-            <p>A framework for distinguishing stable, partially stable, and unstable operating regimes across biological, physical, and informational systems.</p>
-            <div class="asset-tags"><span class="tag">Diagnostics</span><span class="tag">Monitoring</span><span class="tag">Classification</span></div>
-          </article>
-          <article class="card asset-card">
-            <h3>Harmonic Transformation Pipeline</h3>
-            <p>A structured signal pipeline that receives raw inputs, transforms them into harmonic form, and computes usable outputs from them.</p>
-            <div class="asset-tags"><span class="tag">Signals</span><span class="tag">Pipeline</span><span class="tag">Inference</span></div>
-          </article>
-          <article class="card asset-card">
-            <h3>Cloud, Edge, and Embedded Deployment Layer</h3>
-            <p>Coverage for implementation in cloud systems, edge nodes, local controllers, and embedded technical environments.</p>
-            <div class="asset-tags"><span class="tag">Embedded</span><span class="tag">Cloud</span><span class="tag">Deployment</span></div>
-          </article>
-          <article class="card asset-card">
-            <h3>Multi-Industry Application Estate</h3>
-            <p>A patent position drafted for deployment across enterprise software, energy systems, industrial systems, agriculture, logistics, health-adjacent sensing, and more.</p>
-            <div class="asset-tags"><span class="tag">Verticals</span><span class="tag">Expansion</span><span class="tag">Applications</span></div>
-          </article>
-          <article class="card asset-card">
-            <h3>Coherence-as-a-Service Infrastructure</h3>
-            <p>A basis for dashboards, APIs, orchestration layers, and enterprise-facing software built on top of the protected computation layer.</p>
-            <div class="asset-tags"><span class="tag">SaaS</span><span class="tag">API</span><span class="tag">Recurring Revenue</span></div>
-          </article>
-          <article class="card asset-card">
-            <h3>Validation and Falsifiability Framework</h3>
-            <p>A structured model for testing whether coherence measurement and modulation produce measurable operational outcomes.</p>
-            <div class="asset-tags"><span class="tag">Validation</span><span class="tag">Pilots</span><span class="tag">Proof</span></div>
-          </article>
-        </div>
+  <section class="section" id="assets">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Patent Asset Portfolio</div>
+        <h2>The first eight assets investors and licensing partners should understand</h2>
+        <p class="subhead">Each asset below is framed as a protected commercial building block within a broader licensing-first patent company.</p>
       </div>
-    </section>
+      <div class="grid-4">
+        <article class="card"><h3>Enterprise Systems Asset</h3><p class="muted">Protected methods for detecting operational instability, drift, inefficiency, and system-state degradation in complex business environments.</p><div class="meta"><strong>Commercial value</strong>Analytics, monitoring, enterprise software<strong>Status</strong>Filed, claim-mapped, open-data proof demonstrated</div></article>
+        <article class="card"><h3>Energy and Grid Asset</h3><p class="muted">Protected methods for interpreting resilience signals, anomalies, and operational imbalance in infrastructure environments.</p><div class="meta"><strong>Commercial value</strong>Utilities, infrastructure operators, monitoring platforms<strong>Status</strong>Filed, modeled, open-data proof demonstrated</div></article>
+        <article class="card"><h3>Battery and Storage Asset</h3><p class="muted">Protected methods for state interpretation, degradation detection, and instability mapping in storage systems.</p><div class="meta"><strong>Commercial value</strong>OEMs, diagnostics, storage monitoring<strong>Status</strong>Filed, application mapped</div></article>
+        <article class="card"><h3>AI Architecture Asset</h3><p class="muted">Protected methods for evaluating multi-agent coherence, loop stability, bottlenecks, and architecture reliability.</p><div class="meta"><strong>Commercial value</strong>Agent orchestration, AI infrastructure, reliability scoring<strong>Status</strong>Filed, simulated, interface-ready</div></article>
+        <article class="card"><h3>Food Systems Asset</h3><p class="muted">Protected methods for classification, integrity analysis, and signal interpretation across food environments.</p><div class="meta"><strong>Commercial value</strong>Food analytics, quality systems, supply-chain intelligence<strong>Status</strong>Filed, application mapped</div></article>
+        <article class="card"><h3>Agriculture Asset</h3><p class="muted">Protected methods for environmental sensing interpretation, crop-system monitoring, and optimization support.</p><div class="meta"><strong>Commercial value</strong>AgTech, sensor systems, operational optimization<strong>Status</strong>Filed, application mapped</div></article>
+        <article class="card"><h3>Health-Adjacent Operational Asset</h3><p class="muted">Protected methods for structured monitoring, early warning, and signal interpretation in regulated or operationally sensitive environments.</p><div class="meta"><strong>Commercial value</strong>Workflow monitoring, decision-support infrastructure<strong>Status</strong>Filed, workflow mapped</div></article>
+        <article class="card"><h3>Embedded and Sensing Asset</h3><p class="muted">Protected methods for coherence-based interpretation inside devices, sensors, embedded systems, or chip-adjacent environments.</p><div class="meta"><strong>Commercial value</strong>Hardware, sensing, industrial intelligence<strong>Status</strong>Filed, strategic path identified</div></article>
+      </div>
+    </div>
+  </section>
 
-    <section id="licensing">
-      <div class="container licensing-wedge-grid">
-        <div class="card wedge-main">
-          <div class="eyebrow">Lead Licensing Wedge</div>
-          <h2>License the coherence layer into existing enterprise systems</h2>
-          <p style="margin-top: 18px;">
-            The fastest commercial path is not building every end product internally. It is licensing the core coherence computation and control architecture into companies that already own workflows, infrastructure, data environments, devices, or distribution.
-          </p>
-          <p style="margin-top: 14px;">
-            This gives partners a new technical layer for monitoring, prediction, optimization, and control without requiring a complete system rebuild.
-          </p>
-          <div class="hero-actions" style="margin-top: 24px;">
-            <a class="button" href="#final-cta">Start a Licensing Conversation</a>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Claim-to-Proof Map</div>
+        <h2>Translate protected claims into investable evidence</h2>
+        <p class="subhead">Core claims should be supported by architecture, validation logic, and commercialization readiness.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card claim-row"><h3>Detect hidden instability earlier</h3><p class="muted">Supported by open-data operational models, KPI drift interpretation, and system-state analysis across enterprise and operational environments.</p></div>
+        <div class="card claim-row"><h3>Support multiple industries from one protected core</h3><p class="muted">Supported by patent family expansion across enterprise systems, energy, batteries, AI, food systems, agriculture, and health-adjacent pathways.</p></div>
+        <div class="card claim-row"><h3>Convert protected invention into licensing value</h3><p class="muted">Supported by a defined licensing wedge, revenue architecture, pilot pathways, and partner-facing diligence materials.</p></div>
+        <div class="card claim-row"><h3>Improve decision support in complex environments</h3><p class="muted">Supported by simulation environments, architecture scoring, and structured commercial use-case design.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Evidence Maturity</div>
+        <h2>A clear proof ladder from invention to licensing</h2>
+        <p class="subhead">Different assets are at different stages of maturity. This structure helps investors and partners distinguish what is already protected, what has been demonstrated, and what should be validated next.</p>
+      </div>
+      <div class="maturity-table">
+        <div class="maturity-head">
+          <div>Domain</div><div>Protected IP</div><div>Modeled Validation</div><div>Open-Data Proof</div><div>Live Commercial Validation</div>
+        </div>
+        <div class="maturity-row"><div>Enterprise Systems</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="partial">In progress</div></div>
+        <div class="maturity-row"><div>Logistics and Fulfillment</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="no">Next stage</div></div>
+        <div class="maturity-row"><div>Payments and Refunds</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="no">Next stage</div></div>
+        <div class="maturity-row"><div>SaaS and Workflow Systems</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="no">Next stage</div></div>
+        <div class="maturity-row"><div>Energy and Infrastructure</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="no">Next stage</div></div>
+        <div class="maturity-row"><div>Batteries and Storage</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="no">Mapped</div><div class="no">Next stage</div></div>
+        <div class="maturity-row"><div>AI Systems</div><div class="yes">Yes</div><div class="yes">Yes</div><div class="partial">Simulated</div><div class="no">Next stage</div></div>
+        <div class="maturity-row"><div>Food and Agriculture</div><div class="yes">Yes</div><div class="partial">Mapped</div><div class="no">Next stage</div><div class="no">Next stage</div></div>
+        <div class="maturity-row"><div>Health-Adjacent Systems</div><div class="yes">Yes</div><div class="partial">Mapped</div><div class="no">Next stage</div><div class="no">Next stage</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Proof Sources</div>
+        <h2>Three layers of verification support the commercial story</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>Protected invention base</h3><p class="muted">Patent filings, claim architecture, figure systems, and protected technical logic establish ownership of the core method.</p></div>
+        <div class="card"><h3>Operational validation base</h3><p class="muted">Open-data POCs, modeled savings structures, system simulations, and architecture scoring show that the invention can translate into measurable operating relevance.</p></div>
+        <div class="card"><h3>Commercial validation base</h3><p class="muted">Licensing pathways, pilot frameworks, integration logic, and partner materials support the move from protected invention to revenue.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Verification Matrix</div>
+        <h2>Where the method has been tested, mapped, or prepared for commercial proof</h2>
+        <p class="subhead">The purpose of this section is to show disciplined evidence, not to imply that every market is equally mature.</p>
+      </div>
+      <div class="matrix-list">
+        <div class="matrix-card"><h3>Enterprise Systems</h3><p class="muted">Operational drift detection and cost leakage monitoring.</p><strong class="status">Status, Open-data validated / pilot-ready</strong></div>
+        <div class="matrix-card"><h3>Logistics</h3><p class="muted">Throughput imbalance and volume stress detection.</p><strong class="status">Status, Open-data validated</strong></div>
+        <div class="matrix-card"><h3>Payments and Refunds</h3><p class="muted">Chargebacks, refunds, rework patterns.</p><strong class="status">Status, Open-data validated</strong></div>
+        <div class="matrix-card"><h3>SaaS and Workflow Systems</h3><p class="muted">Cost-ratio interpretation and inefficiency mapping.</p><strong class="status">Status, Open-data validated</strong></div>
+        <div class="matrix-card"><h3>Energy and Infrastructure</h3><p class="muted">Resilience and anomaly interpretation.</p><strong class="status">Status, Open-data validated / commercialization wedge identified</strong></div>
+        <div class="matrix-card"><h3>Batteries and Storage</h3><p class="muted">Degradation and state interpretation.</p><strong class="status">Status, Application mapped</strong></div>
+        <div class="matrix-card"><h3>AI Systems</h3><p class="muted">Multi-agent coherence and loop stability.</p><strong class="status">Status, Simulated proof</strong></div>
+        <div class="matrix-card"><h3>Food Systems</h3><p class="muted">Classification and integrity analysis.</p><strong class="status">Status, Application mapped</strong></div>
+        <div class="matrix-card"><h3>Agriculture</h3><p class="muted">Sensing interpretation and optimization support.</p><strong class="status">Status, Application mapped</strong></div>
+        <div class="matrix-card"><h3>Health-Adjacent Systems</h3><p class="muted">Monitoring and early warning support.</p><strong class="status">Status, Application mapped</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Domain Transfer</div>
+        <h2>One protected method, multiple commercialization lanes</h2>
+        <p class="subhead">The value of the platform is not that it touches many sectors. The value is that one protected technical core can be extended into multiple sectors without rebuilding the invention each time.</p>
+      </div>
+      <div class="domain-chips">
+        <span class="domain-chip">Enterprise Systems</span>
+        <span class="domain-chip">Logistics</span>
+        <span class="domain-chip">Payments</span>
+        <span class="domain-chip">SaaS</span>
+        <span class="domain-chip">Energy</span>
+        <span class="domain-chip">Batteries</span>
+        <span class="domain-chip">AI Systems</span>
+        <span class="domain-chip">Food</span>
+        <span class="domain-chip">Agriculture</span>
+        <span class="domain-chip">Health-Adjacent Monitoring</span>
+        <span class="domain-chip">Sensing</span>
+        <span class="domain-chip">Infrastructure</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="revenue">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Revenue Architecture</div>
+        <h2>Three paths from protected invention to revenue</h2>
+        <p class="subhead">The company is structured to generate value through a mix of direct software deployment, patent licensing, and strategic validation partnerships.</p>
+      </div>
+      <div class="grid-3">
+        <div class="board"><h3>Software and Enterprise Deployments</h3><p class="muted">Pilot programs, analytics deployments, dashboards, and annual software agreements for operators, institutions, enterprise teams, and platforms.</p><div class="meta">Creates near-term commercial proof and deployment case studies</div></div>
+        <div class="board"><h3>Patent Licensing</h3><p class="muted">Use-case licenses, sector licenses, and structured access to protected technical methods for software companies, AI infrastructure groups, hardware-adjacent companies, sensing platforms, and strategic operators.</p><div class="meta">Creates scalable monetization beyond headcount-heavy services</div></div>
+        <div class="board"><h3>Strategic and Research Partnerships</h3><p class="muted">Validation collaborations, co-development pathways, and sector-specific proof programs for universities, labs, innovation groups, and ecosystem partners.</p><div class="meta">Expands credibility, proof depth, and downstream licensing leverage</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="partner">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <div class="section-head">
+            <div class="eyebrow">For Licensing and Strategic Partners</div>
+            <h2>What a serious partner should be able to review</h2>
+          </div>
+          <div class="checklist">
+            <div class="check">Patent family positioning</div>
+            <div class="check">Claim maps and figure systems</div>
+            <div class="check">Use-case alignment by sector</div>
+            <div class="check">Licensing pathway options</div>
+            <div class="check">Pilot scope templates</div>
+            <div class="check">Technical briefings</div>
+            <div class="check">Strategic partnership materials under NDA</div>
+          </div>
+          <div class="cta-row">
+            <a class="btn primary" href="#licensing">Request Licensing Brief</a>
+            <a class="btn secondary" href="#licensing">Review Partnership Pathways</a>
           </div>
         </div>
-        <div class="card wedge-side">
-          <h3>Why this is the first wedge</h3>
-          <ul class="bullet-list">
-            <li>Built for enterprise software and infrastructure buyers</li>
-            <li>Designed to add differentiated signal intelligence to existing systems</li>
-            <li>Creates a practical first wedge before broader multi-domain expansion</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="applications">
-      <div class="container">
-        <div class="section-intro">
-          <div class="eyebrow">Applications</div>
-          <h2>A protected core with commercial pathways across 20 domains</h2>
-          <p>
-            The portfolio may extend across 20 domains, but commercialization should be sequenced. The page highlights the clearest early commercial pathways first.
-          </p>
-        </div>
-        <div class="applications-grid">
-          <article class="card application-card">
-            <h3>Enterprise Systems</h3>
-            <p>Operational monitoring, drift detection, optimization, and state intelligence for enterprise software and infrastructure platforms.</p>
-            <div class="buyer-line">Buyers: enterprise software companies, infrastructure operators, analytics platforms</div>
-          </article>
-          <article class="card application-card">
-            <h3>Energy and Grid Systems</h3>
-            <p>Battery interpretation, resilience logic, degradation monitoring, and performance optimization across energy environments.</p>
-            <div class="buyer-line">Buyers: utilities, storage operators, battery platforms, grid technology companies</div>
-          </article>
-          <article class="card application-card">
-            <h3>Industrial and Embedded Systems</h3>
-            <p>Real-time interpretation and control logic for machines, robotics, devices, and edge-based systems.</p>
-            <div class="buyer-line">Buyers: OEMs, robotics firms, industrial operators, embedded system developers</div>
-          </article>
-          <article class="card application-card">
-            <h3>Health and Biological Monitoring</h3>
-            <p>Multi-signal state classification and early-warning environments for sensing, diagnostics support, and biologically informed system interpretation.</p>
-            <div class="buyer-line">Buyers: digital health platforms, sensing companies, research partners, diagnostics-adjacent groups</div>
-          </article>
-          <article class="card application-card">
-            <h3>Food Systems and Agriculture</h3>
-            <p>Signal-based process interpretation, quality monitoring, environmental sensing, and system optimization across food and agriculture contexts.</p>
-            <div class="buyer-line">Buyers: agtech platforms, food systems operators, sensing companies, controlled environment agriculture groups</div>
-          </article>
-          <article class="card application-card">
-            <h3>Security and Identity Systems</h3>
-            <p>Dynamic authentication, trust scoring, and trajectory-based verification for intelligent security environments.</p>
-            <div class="buyer-line">Buyers: authentication platforms, security software firms, identity infrastructure providers</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="revenue">
-      <div class="container">
-        <div class="section-intro">
-          <div class="eyebrow">Revenue Architecture</div>
-          <h2>Three pathways from patent rights to revenue</h2>
-          <p>
-            The portfolio should be understood as a commercial rights platform, not only a technical framework.
-          </p>
-        </div>
-        <div class="revenue-grid">
-          <article class="card revenue-panel">
-            <h3>Enterprise Licensing</h3>
-            <p>License the core computation, coherence metric, and control methods into enterprise software, industrial systems, infrastructure platforms, and device ecosystems.</p>
-            <span class="sub-label">Revenue model</span>
-            <p>Upfront licensing fees, annual renewals, optional field-of-use rights, and commercial expansion terms.</p>
-            <span class="sub-label">Why it matters</span>
-            <p>This monetizes the patents at the infrastructure layer, where one integration can support multiple downstream products.</p>
-          </article>
-          <article class="card revenue-panel">
-            <h3>Platform and SaaS Deployment</h3>
-            <p>Offer software implementations of the coherence engine through dashboards, APIs, orchestration layers, and decision-support products.</p>
-            <span class="sub-label">Revenue model</span>
-            <p>Pilot fees, annual SaaS contracts, usage-based pricing, and enterprise support agreements.</p>
-            <span class="sub-label">Why it matters</span>
-            <p>This creates repeatable recurring software revenue on top of the core IP.</p>
-          </article>
-          <article class="card revenue-panel">
-            <h3>Strategic Joint Development</h3>
-            <p>Partner with device makers, operators, research groups, and systems integrators to build domain-specific implementations.</p>
-            <span class="sub-label">Revenue model</span>
-            <p>Feasibility studies, milestone payments, co-development agreements, royalties, and commercial conversion rights.</p>
-            <span class="sub-label">Why it matters</span>
-            <p>This is the strongest path in complex sectors where validation and integration are required before broad commercialization.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-intro">
-          <div class="eyebrow">Commercialization Roadmap</div>
-          <h2>How the patent company scales across 20 domains</h2>
-        </div>
-        <div class="roadmap-track">
-          <article class="card roadmap-step">
-            <div class="step-number">01</div>
-            <h3>Lead Asset</h3>
-            <p>Begin with the asset that has the clearest buyer, shortest path to proof, and strongest ROI narrative.</p>
-          </article>
-          <article class="card roadmap-step">
-            <div class="step-number">02</div>
-            <h3>Licensing Proof</h3>
-            <p>Convert one partner engagement, pilot, or technical validation into a repeatable commercial case.</p>
-          </article>
-          <article class="card roadmap-step">
-            <div class="step-number">03</div>
-            <h3>Adjacent Expansion</h3>
-            <p>Activate additional patent assets and application categories that share the same protected computational core.</p>
-          </article>
-          <article class="card roadmap-step">
-            <div class="step-number">04</div>
-            <h3>Portfolio Scale</h3>
-            <p>Increase enterprise value as each new licensing lane reinforces the holdco asset base.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-intro">
-          <div class="eyebrow">Ownership Structure</div>
-          <h2>One IP owner, multiple commercialization paths</h2>
-          <p>
-            Coherence Labs IP is structured to own the core patent estate and license it into partners, software deployments, and downstream operating companies.
-          </p>
-        </div>
-        <div class="structure-layout">
-          <div class="structure-top">
-            <div class="card structure-box">
-              <h3>Coherence Labs IP</h3>
-              <p>Centralized ownership of the patent estate</p>
-            </div>
-          </div>
-          <div class="structure-middle">
-            <div class="card structure-box"><h3>Strategic Partners</h3></div>
-            <div class="card structure-box"><h3>Software Deployments</h3></div>
-            <div class="card structure-box"><h3>Operating Companies</h3></div>
-          </div>
-          <div class="structure-bottom">
-            <div class="card structure-box"><h3>Licensing Revenue</h3></div>
-            <div class="card structure-box"><h3>Product Revenue</h3></div>
-            <div class="card structure-box"><h3>Vertical Applications</h3></div>
-            <div class="card structure-box"><h3>Portfolio Expansion</h3></div>
-          </div>
-        </div>
-        <p class="muted-small">
-          This structure separates long-term IP value from any single product or operating vehicle while preserving strategic control at the asset layer.
-        </p>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="container">
-        <div class="section-intro">
-          <div class="eyebrow">Investor FAQ</div>
-          <h2>Key questions investors and partners will ask</h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>What exactly is the core IP?</summary>
-            <div class="faq-answer">The core IP is a coherence-based computation and control framework that includes a field equation, coherence metric, transformation pipeline, and control logic for measuring and acting on system behavior.</div>
-          </details>
-          <details class="faq-item">
-            <summary>Is this a single-product company or a platform IP company?</summary>
-            <div class="faq-answer">It is best framed as a platform IP company with the ability to support multiple operating products, partners, and deployment layers.</div>
-          </details>
-          <details class="faq-item">
-            <summary>Why is the licensing opportunity large?</summary>
-            <div class="faq-answer">Because the same protected architecture can be deployed across multiple technical sectors rather than being limited to one narrow product category.</div>
-          </details>
-          <details class="faq-item">
-            <summary>What is the most practical first commercialization path?</summary>
-            <div class="faq-answer">The most practical first path is licensing or co-developing with partners who already control data, hardware, infrastructure, or operational environments.</div>
-          </details>
-          <details class="faq-item">
-            <summary>How do you validate technical credibility?</summary>
-            <div class="faq-answer">The portfolio supports structured testing, measurement, and comparison against baselines, which is critical for diligence, pilots, and technical partnerships.</div>
-          </details>
-          <details class="faq-item">
-            <summary>What makes this investable before full market penetration?</summary>
-            <div class="faq-answer">The value comes from patent ownership, multiple monetization paths, broad application coverage, and the ability to create both licensing revenue and downstream product upside.</div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="final-cta" id="final-cta">
-      <div class="container">
-        <div class="card final-cta-box">
-          <div class="cta-copy">
-            <div class="eyebrow">Next Step</div>
-            <h2>Built for strategic licensing, partner diligence, and long-term portfolio value</h2>
-            <p style="margin-top: 14px; max-width: 760px;">
-              If you are evaluating protected infrastructure for a product, system, or market opportunity, Coherence Labs IP is positioned to discuss licensing, partnership, and commercialization pathways.
-            </p>
-          </div>
-          <div class="final-actions">
-            <a class="button" href="mailto:hello@coherencelabsip.com">Request Licensing Deck</a>
-            <a class="button-secondary" href="mailto:partners@coherencelabsip.com">Schedule Partner Conversation</a>
+        <div class="panel" style="padding:24px;">
+          <div class="eyebrow" style="margin-bottom:10px;">Verification Roadmap</div>
+          <h3 style="font-size:1.5rem; margin-bottom:16px;">How the company de-risks from here</h3>
+          <div class="stack">
+            <div class="step"><h3>Technical replication</h3><p class="muted">Replicate outputs across more datasets and environments.</p></div>
+            <div class="step"><h3>Design partner pilot</h3><p class="muted">Validate the method in a high-value live commercial setting.</p></div>
+            <div class="step"><h3>Licensed deployment</h3><p class="muted">Convert successful validation into annual license, integration, or strategic sector partnership.</p></div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="site-footer">
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Why Now</div>
+        <h2>Why this company matters now</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>Systems are becoming harder to interpret</h3><p class="muted">Enterprise, AI, infrastructure, and industrial environments generate more instability than static tools were built to handle.</p></div>
+        <div class="card"><h3>Most tools still detect lagging symptoms</h3><p class="muted">Traditional systems often identify what already went wrong. Protected coherence-based methods aim to detect instability earlier, while a response is still economically useful.</p></div>
+        <div class="card"><h3>Protected transferability creates leverage</h3><p class="muted">A multi-domain patent position with licensing pathways can create more strategic value than a single narrow product story.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Investor FAQ</div>
+        <h2>Questions investors should be able to answer quickly</h2>
+      </div>
+      <div class="grid-2">
+        <div class="faq-item"><h3>What is the company actually selling?</h3><p class="muted">A protected method and patent-led commercialization platform that can be deployed through software, licensed into sector-specific use cases, or structured through strategic partnerships.</p></div>
+        <div class="faq-item"><h3>Why is this more than a software product?</h3><p class="muted">Because the company is being built around protected technical assets that can support multiple downstream applications and licensing pathways.</p></div>
+        <div class="faq-item"><h3>What is the first commercial wedge?</h3><p class="muted">Enterprise and operational systems, where instability and inefficiency are easier to map to measurable buyer outcomes.</p></div>
+        <div class="faq-item"><h3>Why does the portfolio matter?</h3><p class="muted">Because one protected technical core can support multiple sectors, increasing the long-term value of the IP base.</p></div>
+        <div class="faq-item"><h3>What proof matters most right now?</h3><p class="muted">Clear open-data validation, disciplined claim-to-proof mapping, and live partner pilots in the highest-value commercial wedge.</p></div>
+        <div class="faq-item"><h3>What increases valuation from here?</h3><p class="muted">Partner validation, licensing conversations, pilot conversion, stronger proof packaging, and clearer commercial evidence around the lead wedge.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="licensing">
+    <div class="container">
+      <div class="panel" style="padding: 34px;">
+        <div class="section-head" style="margin-bottom:20px; max-width:860px;">
+          <div class="eyebrow">Licensing and Partnership</div>
+          <h2>Explore licensing, partnership, or validation pathways</h2>
+          <p class="subhead">Coherence Labs IP is being structured as an IP-first commercialization company with multiple sector pathways built on a protected core method.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="#">Request Licensing Brief</a>
+          <a class="btn secondary" href="#">Discuss Strategic Partnership</a>
+        </div>
+        <p class="muted" style="margin-top:18px;">For strategic operators, software platforms, infrastructure groups, hardware-adjacent companies, and selected validation partners.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
     <div class="container footer-inner">
       <div>
-        <div class="logo-title">Coherence Labs IP</div>
-        <div class="logo-subtitle">Patent Portfolio & Licensing Platform</div>
-        <div class="muted-small">Protected computational infrastructure for licensing, deployment, and portfolio expansion.</div>
+        <div class="brand" style="margin-bottom:10px; color:var(--text);">Coherence Labs IP</div>
+        <div>Protected system intelligence for enterprise, infrastructure, AI, energy, batteries, food, agriculture, and sensing.</div>
       </div>
       <div class="footer-links">
         <a href="#assets">Patent Assets</a>
-        <a href="#applications">Applications</a>
+        <a href="#verification">Verification</a>
+        <a href="#revenue">Revenue Architecture</a>
         <a href="#licensing">Licensing</a>
+        <a href="#partner">Partnerships</a>
         <a href="#faq">Investor FAQ</a>
       </div>
     </div>
