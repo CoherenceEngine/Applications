@@ -36,6 +36,7 @@
     }
 
     a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
     .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
     .section { padding: 88px 0; position: relative; }
     .section-head { max-width: 780px; margin-bottom: 32px; }
@@ -84,9 +85,13 @@
     .nav-links { display: flex; gap: 22px; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem; }
 
     .hero {
+      position: relative;
+      overflow: hidden;
       padding: 78px 0 42px;
     }
     .hero-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: 1.35fr 0.95fr;
       gap: 30px;
@@ -94,6 +99,27 @@
     }
     .hero-copy { padding-top: 18px; }
     .hero-copy .subhead { margin-top: 20px; }
+    .hero-visual {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    #heroField {
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: 0.9;
+    }
+    .hero-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(120,167,255,0.10), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(109,225,210,0.08), transparent 24%),
+        linear-gradient(180deg, rgba(8,16,28,0.12), rgba(8,16,28,0.42));
+    }
+
     .cta-row {
       display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px;
     }
@@ -101,6 +127,7 @@
       display: inline-flex; align-items: center; justify-content: center;
       min-height: 48px; padding: 0 18px; border-radius: 999px; font-weight: 600;
       border: 1px solid var(--line-strong); transition: 180ms ease;
+      cursor: pointer;
     }
     .btn.primary {
       background: linear-gradient(135deg, rgba(120,167,255,0.22), rgba(109,225,210,0.16));
@@ -133,12 +160,17 @@
     .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
     .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
 
-    .stat-card, .card, .matrix-card, .board, .faq-item, .chip-wrap, .step {
+    .stat-card, .card, .matrix-card, .board, .faq-item, .chip-wrap, .step, .proof-layer {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 22px;
     }
-    .stat-card { padding: 20px; }
+    .stat-card { padding: 20px; transition: transform 180ms ease, border-color 180ms ease, background 180ms ease; }
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(120,167,255,0.36);
+      background: rgba(21, 33, 53, 0.92);
+    }
     .stat-card .label { color: var(--muted); font-size: 0.82rem; margin-bottom: 6px; }
     .stat-card strong { font-size: 1.05rem; letter-spacing: -0.02em; }
 
@@ -146,9 +178,11 @@
     .chip {
       padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line);
       color: var(--soft); background: rgba(255,255,255,0.02); font-size: 0.92rem;
+      transition: 180ms ease;
     }
+    .chip:hover { border-color: rgba(109,225,210,0.34); background: rgba(109,225,210,0.06); }
 
-    .card, .board, .faq-item, .step, .matrix-card { padding: 22px; }
+    .card, .board, .faq-item, .step, .matrix-card, .proof-layer { padding: 22px; }
     .meta { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.93rem; }
     .meta strong { display: block; color: var(--soft); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 8px 0 6px; }
     .stack > * + * { margin-top: 14px; }
@@ -160,6 +194,52 @@
     }
     .claim-row, .step { padding-top: 34px; }
 
+    .asset-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .asset-filter {
+      background: rgba(255,255,255,0.03);
+      color: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: 180ms ease;
+    }
+    .asset-filter:hover,
+    .asset-filter.active {
+      border-color: rgba(120,167,255,0.45);
+      background: rgba(120,167,255,0.10);
+    }
+    .asset-card {
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+    .asset-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(120,167,255,0.30);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+    }
+    .asset-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .asset-tag,
+    .asset-status {
+      font-size: 0.78rem;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--soft);
+    }
+    .asset-card.hidden { display: none; }
+
     .maturity-table {
       overflow: hidden; border-radius: 22px; border: 1px solid var(--line);
       background: var(--panel);
@@ -170,23 +250,138 @@
     .maturity-head { background: rgba(255,255,255,0.02); color: var(--soft); font-weight: 600; }
     .maturity-head div, .maturity-row div { padding: 16px 18px; border-bottom: 1px solid var(--line); }
     .maturity-row:last-child div { border-bottom: 0; }
+    .maturity-row:hover { background: rgba(120,167,255,0.04); }
     .yes { color: var(--accent-2); }
     .partial { color: #ffd27a; }
     .no { color: var(--muted); }
 
+    .proof-stack {
+      display: grid;
+      gap: 18px;
+      position: relative;
+    }
+    .proof-layer {
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .proof-layer:hover {
+      transform: translateY(-2px);
+      border-color: rgba(109,225,210,0.30);
+    }
+
     .matrix-list { display: grid; gap: 14px; }
     .matrix-card strong.status { display: inline-block; margin-top: 12px; color: var(--accent-2); font-size: 0.92rem; }
 
-    .domain-chips { display: flex; flex-wrap: wrap; gap: 12px; }
-    .domain-chip {
-      padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02); color: var(--soft);
+    .domain-orbit-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
     }
+    .domain-orbit-wrap {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at center, rgba(120,167,255,0.08), transparent 18%),
+        radial-gradient(circle at center, rgba(109,225,210,0.04), transparent 40%);
+    }
+    .domain-orbit-wrap::before,
+    .domain-orbit-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(160,184,214,0.10);
+      border-radius: 50%;
+    }
+    .domain-orbit-wrap::before { width: 320px; height: 320px; }
+    .domain-orbit-wrap::after { width: 440px; height: 440px; }
+    .orbit-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 180px;
+      height: 180px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: radial-gradient(circle, rgba(120,167,255,0.18), rgba(8,16,28,0.92));
+      border: 1px solid rgba(120,167,255,0.22);
+      box-shadow: 0 0 50px rgba(120,167,255,0.12);
+    }
+    .orbit-node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border: 1px solid var(--line);
+      background: rgba(16, 27, 43, 0.94);
+      color: var(--soft);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: 180ms ease;
+    }
+    .orbit-node:hover,
+    .orbit-node.active {
+      border-color: rgba(109,225,210,0.40);
+      background: rgba(109,225,210,0.10);
+      color: #fff;
+      box-shadow: 0 0 24px rgba(109,225,210,0.10);
+    }
+    .domain-detail { padding: 24px; }
 
     .checklist { display: grid; gap: 12px; margin: 20px 0 28px; }
     .check {
       padding: 12px 14px; border-radius: 16px; border: 1px solid var(--line);
       background: rgba(255,255,255,0.02); color: var(--soft);
+    }
+
+    .faq-accordion {
+      display: grid;
+      gap: 14px;
+    }
+    .faq-acc-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+    .faq-acc-trigger {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      cursor: pointer;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .faq-icon {
+      font-size: 1.3rem;
+      color: var(--accent-2);
+      transition: transform 180ms ease;
+    }
+    .faq-acc-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 220ms ease;
+    }
+    .faq-acc-content p {
+      margin: 0;
+      padding: 0 22px 20px;
+      color: var(--muted);
+    }
+    .faq-acc-item.active .faq-icon {
+      transform: rotate(45deg);
     }
 
     .footer {
@@ -203,6 +398,10 @@
       .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .maturity-head, .maturity-row { grid-template-columns: 1.4fr repeat(4, minmax(120px, 1fr)); }
     }
+    @media (max-width: 980px) {
+      .domain-orbit-layout { grid-template-columns: 1fr; }
+      .domain-orbit-wrap { min-height: 460px; }
+    }
     @media (max-width: 760px) {
       .container { width: min(var(--max), calc(100% - 24px)); }
       .section { padding: 64px 0; }
@@ -212,6 +411,8 @@
       .maturity-head, .maturity-row { min-width: 760px; }
       .cta-row { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
+      .orbit-node { font-size: 0.82rem; padding: 8px 10px; }
+      .orbit-center { width: 150px; height: 150px; font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -230,6 +431,11 @@
   </nav>
 
   <header class="hero container">
+    <div class="hero-visual">
+      <canvas id="heroField"></canvas>
+      <div class="hero-visual-overlay"></div>
+    </div>
+
     <div class="hero-grid">
       <div class="hero-copy">
         <div class="eyebrow">Coherence Labs IP</div>
@@ -315,15 +521,68 @@
         <h2>The first eight assets investors and licensing partners should understand</h2>
         <p class="subhead">Each asset below is framed as a protected commercial building block within a broader licensing-first patent company.</p>
       </div>
-      <div class="grid-4">
-        <article class="card"><h3>Enterprise Systems Asset</h3><p class="muted">Protected methods for detecting operational instability, drift, inefficiency, and system-state degradation in complex business environments.</p><div class="meta"><strong>Commercial value</strong>Analytics, monitoring, enterprise software<strong>Status</strong>Filed, claim-mapped, open-data proof demonstrated</div></article>
-        <article class="card"><h3>Energy and Grid Asset</h3><p class="muted">Protected methods for interpreting resilience signals, anomalies, and operational imbalance in infrastructure environments.</p><div class="meta"><strong>Commercial value</strong>Utilities, infrastructure operators, monitoring platforms<strong>Status</strong>Filed, modeled, open-data proof demonstrated</div></article>
-        <article class="card"><h3>Battery and Storage Asset</h3><p class="muted">Protected methods for state interpretation, degradation detection, and instability mapping in storage systems.</p><div class="meta"><strong>Commercial value</strong>OEMs, diagnostics, storage monitoring<strong>Status</strong>Filed, application mapped</div></article>
-        <article class="card"><h3>AI Architecture Asset</h3><p class="muted">Protected methods for evaluating multi-agent coherence, loop stability, bottlenecks, and architecture reliability.</p><div class="meta"><strong>Commercial value</strong>Agent orchestration, AI infrastructure, reliability scoring<strong>Status</strong>Filed, simulated, interface-ready</div></article>
-        <article class="card"><h3>Food Systems Asset</h3><p class="muted">Protected methods for classification, integrity analysis, and signal interpretation across food environments.</p><div class="meta"><strong>Commercial value</strong>Food analytics, quality systems, supply-chain intelligence<strong>Status</strong>Filed, application mapped</div></article>
-        <article class="card"><h3>Agriculture Asset</h3><p class="muted">Protected methods for environmental sensing interpretation, crop-system monitoring, and optimization support.</p><div class="meta"><strong>Commercial value</strong>AgTech, sensor systems, operational optimization<strong>Status</strong>Filed, application mapped</div></article>
-        <article class="card"><h3>Health-Adjacent Operational Asset</h3><p class="muted">Protected methods for structured monitoring, early warning, and signal interpretation in regulated or operationally sensitive environments.</p><div class="meta"><strong>Commercial value</strong>Workflow monitoring, decision-support infrastructure<strong>Status</strong>Filed, workflow mapped</div></article>
-        <article class="card"><h3>Embedded and Sensing Asset</h3><p class="muted">Protected methods for coherence-based interpretation inside devices, sensors, embedded systems, or chip-adjacent environments.</p><div class="meta"><strong>Commercial value</strong>Hardware, sensing, industrial intelligence<strong>Status</strong>Filed, strategic path identified</div></article>
+
+      <div class="asset-filters">
+        <button class="asset-filter active" data-filter="all">All</button>
+        <button class="asset-filter" data-filter="enterprise">Enterprise</button>
+        <button class="asset-filter" data-filter="energy">Energy</button>
+        <button class="asset-filter" data-filter="battery">Batteries</button>
+        <button class="asset-filter" data-filter="ai">AI</button>
+        <button class="asset-filter" data-filter="food">Food</button>
+        <button class="asset-filter" data-filter="agriculture">Agriculture</button>
+        <button class="asset-filter" data-filter="health">Health</button>
+        <button class="asset-filter" data-filter="embedded">Embedded</button>
+      </div>
+
+      <div class="grid-4 asset-grid">
+        <article class="card asset-card" data-category="enterprise">
+          <div class="asset-top"><span class="asset-tag">Enterprise</span><span class="asset-status">Filed</span></div>
+          <h3>Enterprise Systems Asset</h3>
+          <p class="muted">Protected methods for detecting operational instability, drift, inefficiency, and system-state degradation in complex business environments.</p>
+          <div class="meta"><strong>Commercial value</strong>Analytics, monitoring, enterprise software<strong>Status</strong>Filed, claim-mapped, open-data proof demonstrated</div>
+        </article>
+        <article class="card asset-card" data-category="energy">
+          <div class="asset-top"><span class="asset-tag">Energy</span><span class="asset-status">Proof</span></div>
+          <h3>Energy and Grid Asset</h3>
+          <p class="muted">Protected methods for interpreting resilience signals, anomalies, and operational imbalance in infrastructure environments.</p>
+          <div class="meta"><strong>Commercial value</strong>Utilities, infrastructure operators, monitoring platforms<strong>Status</strong>Filed, modeled, open-data proof demonstrated</div>
+        </article>
+        <article class="card asset-card" data-category="battery">
+          <div class="asset-top"><span class="asset-tag">Batteries</span><span class="asset-status">Mapped</span></div>
+          <h3>Battery and Storage Asset</h3>
+          <p class="muted">Protected methods for state interpretation, degradation detection, and instability mapping in storage systems.</p>
+          <div class="meta"><strong>Commercial value</strong>OEMs, diagnostics, storage monitoring<strong>Status</strong>Filed, application mapped</div>
+        </article>
+        <article class="card asset-card" data-category="ai">
+          <div class="asset-top"><span class="asset-tag">AI</span><span class="asset-status">Simulated</span></div>
+          <h3>AI Architecture Asset</h3>
+          <p class="muted">Protected methods for evaluating multi-agent coherence, loop stability, bottlenecks, and architecture reliability.</p>
+          <div class="meta"><strong>Commercial value</strong>Agent orchestration, AI infrastructure, reliability scoring<strong>Status</strong>Filed, simulated, interface-ready</div>
+        </article>
+        <article class="card asset-card" data-category="food">
+          <div class="asset-top"><span class="asset-tag">Food</span><span class="asset-status">Mapped</span></div>
+          <h3>Food Systems Asset</h3>
+          <p class="muted">Protected methods for classification, integrity analysis, and signal interpretation across food environments.</p>
+          <div class="meta"><strong>Commercial value</strong>Food analytics, quality systems, supply-chain intelligence<strong>Status</strong>Filed, application mapped</div>
+        </article>
+        <article class="card asset-card" data-category="agriculture">
+          <div class="asset-top"><span class="asset-tag">Agriculture</span><span class="asset-status">Mapped</span></div>
+          <h3>Agriculture Asset</h3>
+          <p class="muted">Protected methods for environmental sensing interpretation, crop-system monitoring, and optimization support.</p>
+          <div class="meta"><strong>Commercial value</strong>AgTech, sensor systems, operational optimization<strong>Status</strong>Filed, application mapped</div>
+        </article>
+        <article class="card asset-card" data-category="health">
+          <div class="asset-top"><span class="asset-tag">Health</span><span class="asset-status">Mapped</span></div>
+          <h3>Health-Adjacent Operational Asset</h3>
+          <p class="muted">Protected methods for structured monitoring, early warning, and signal interpretation in regulated or operationally sensitive environments.</p>
+          <div class="meta"><strong>Commercial value</strong>Workflow monitoring, decision-support infrastructure<strong>Status</strong>Filed, workflow mapped</div>
+        </article>
+        <article class="card asset-card" data-category="embedded">
+          <div class="asset-top"><span class="asset-tag">Embedded</span><span class="asset-status">Strategic</span></div>
+          <h3>Embedded and Sensing Asset</h3>
+          <p class="muted">Protected methods for coherence-based interpretation inside devices, sensors, embedded systems, or chip-adjacent environments.</p>
+          <div class="meta"><strong>Commercial value</strong>Hardware, sensing, industrial intelligence<strong>Status</strong>Filed, strategic path identified</div>
+        </article>
       </div>
     </div>
   </section>
@@ -374,10 +633,10 @@
         <div class="eyebrow">Proof Sources</div>
         <h2>Three layers of verification support the commercial story</h2>
       </div>
-      <div class="grid-3">
-        <div class="card"><h3>Protected invention base</h3><p class="muted">Patent filings, claim architecture, figure systems, and protected technical logic establish ownership of the core method.</p></div>
-        <div class="card"><h3>Operational validation base</h3><p class="muted">Open-data POCs, modeled savings structures, system simulations, and architecture scoring show that the invention can translate into measurable operating relevance.</p></div>
-        <div class="card"><h3>Commercial validation base</h3><p class="muted">Licensing pathways, pilot frameworks, integration logic, and partner materials support the move from protected invention to revenue.</p></div>
+      <div class="proof-stack">
+        <div class="proof-layer"><h3>Protected invention base</h3><p class="muted">Patent filings, claim architecture, figure systems, and protected technical logic establish ownership of the core method.</p></div>
+        <div class="proof-layer"><h3>Operational validation base</h3><p class="muted">Open-data POCs, modeled savings structures, system simulations, and architecture scoring show that the invention can translate into measurable operating relevance.</p></div>
+        <div class="proof-layer"><h3>Commercial validation base</h3><p class="muted">Licensing pathways, pilot frameworks, integration logic, and partner materials support the move from protected invention to revenue.</p></div>
       </div>
     </div>
   </section>
@@ -404,26 +663,43 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="domain-transfer">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">Domain Transfer</div>
         <h2>One protected method, multiple commercialization lanes</h2>
         <p class="subhead">The value of the platform is not that it touches many sectors. The value is that one protected technical core can be extended into multiple sectors without rebuilding the invention each time.</p>
       </div>
-      <div class="domain-chips">
-        <span class="domain-chip">Enterprise Systems</span>
-        <span class="domain-chip">Logistics</span>
-        <span class="domain-chip">Payments</span>
-        <span class="domain-chip">SaaS</span>
-        <span class="domain-chip">Energy</span>
-        <span class="domain-chip">Batteries</span>
-        <span class="domain-chip">AI Systems</span>
-        <span class="domain-chip">Food</span>
-        <span class="domain-chip">Agriculture</span>
-        <span class="domain-chip">Health-Adjacent Monitoring</span>
-        <span class="domain-chip">Sensing</span>
-        <span class="domain-chip">Infrastructure</span>
+
+      <div class="domain-orbit-layout">
+        <div class="domain-orbit-wrap panel">
+          <div class="orbit-center">Protected Core Method</div>
+
+          <button class="orbit-node active" data-domain="enterprise" style="top:8%; left:46%;">Enterprise</button>
+          <button class="orbit-node" data-domain="logistics" style="top:20%; left:74%;">Logistics</button>
+          <button class="orbit-node" data-domain="payments" style="top:46%; left:84%;">Payments</button>
+          <button class="orbit-node" data-domain="saas" style="top:72%; left:72%;">SaaS</button>
+          <button class="orbit-node" data-domain="energy" style="top:84%; left:46%;">Energy</button>
+          <button class="orbit-node" data-domain="batteries" style="top:72%; left:16%;">Batteries</button>
+          <button class="orbit-node" data-domain="ai" style="top:46%; left:6%;">AI</button>
+          <button class="orbit-node" data-domain="food" style="top:20%; left:16%;">Food</button>
+          <button class="orbit-node" data-domain="agriculture" style="top:10%; left:24%;">Agriculture</button>
+          <button class="orbit-node" data-domain="health" style="top:60%; left:20%;">Health</button>
+          <button class="orbit-node" data-domain="sensing" style="top:30%; left:88%;">Sensing</button>
+          <button class="orbit-node" data-domain="infrastructure" style="top:60%; left:78%;">Infrastructure</button>
+        </div>
+
+        <div class="domain-detail panel" id="domainDetail">
+          <div class="eyebrow">Selected Domain</div>
+          <h3 id="domainTitle">Enterprise Systems</h3>
+          <p class="muted" id="domainText">Enterprise systems provide the clearest first licensing wedge because buyer outcomes can be tied to measurable KPI drift, operational instability, and cost leakage.</p>
+          <div class="meta" id="domainMeta">
+            <strong>Commercial path</strong>
+            Pilot, analytics deployment, annual software or license agreement
+            <strong>Status</strong>
+            Open-data validated, pilot-ready
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -498,13 +774,32 @@
         <div class="eyebrow">Investor FAQ</div>
         <h2>Questions investors should be able to answer quickly</h2>
       </div>
-      <div class="grid-2">
-        <div class="faq-item"><h3>What is the company actually selling?</h3><p class="muted">A protected method and patent-led commercialization platform that can be deployed through software, licensed into sector-specific use cases, or structured through strategic partnerships.</p></div>
-        <div class="faq-item"><h3>Why is this more than a software product?</h3><p class="muted">Because the company is being built around protected technical assets that can support multiple downstream applications and licensing pathways.</p></div>
-        <div class="faq-item"><h3>What is the first commercial wedge?</h3><p class="muted">Enterprise and operational systems, where instability and inefficiency are easier to map to measurable buyer outcomes.</p></div>
-        <div class="faq-item"><h3>Why does the portfolio matter?</h3><p class="muted">Because one protected technical core can support multiple sectors, increasing the long-term value of the IP base.</p></div>
-        <div class="faq-item"><h3>What proof matters most right now?</h3><p class="muted">Clear open-data validation, disciplined claim-to-proof mapping, and live partner pilots in the highest-value commercial wedge.</p></div>
-        <div class="faq-item"><h3>What increases valuation from here?</h3><p class="muted">Partner validation, licensing conversations, pilot conversion, stronger proof packaging, and clearer commercial evidence around the lead wedge.</p></div>
+
+      <div class="faq-accordion">
+        <div class="faq-acc-item active">
+          <button class="faq-acc-trigger"><span>What is the company actually selling?</span><span class="faq-icon">+</span></button>
+          <div class="faq-acc-content"><p>A protected method and patent-led commercialization platform that can be deployed through software, licensed into sector-specific use cases, or structured through strategic partnerships.</p></div>
+        </div>
+        <div class="faq-acc-item">
+          <button class="faq-acc-trigger"><span>Why is this more than a software product?</span><span class="faq-icon">+</span></button>
+          <div class="faq-acc-content"><p>Because the company is being built around protected technical assets that can support multiple downstream applications and licensing pathways.</p></div>
+        </div>
+        <div class="faq-acc-item">
+          <button class="faq-acc-trigger"><span>What is the first commercial wedge?</span><span class="faq-icon">+</span></button>
+          <div class="faq-acc-content"><p>Enterprise and operational systems, where instability and inefficiency are easier to map to measurable buyer outcomes.</p></div>
+        </div>
+        <div class="faq-acc-item">
+          <button class="faq-acc-trigger"><span>Why does the portfolio matter?</span><span class="faq-icon">+</span></button>
+          <div class="faq-acc-content"><p>Because one protected technical core can support multiple sectors, increasing the long-term value of the IP base.</p></div>
+        </div>
+        <div class="faq-acc-item">
+          <button class="faq-acc-trigger"><span>What proof matters most right now?</span><span class="faq-icon">+</span></button>
+          <div class="faq-acc-content"><p>Clear open-data validation, disciplined claim-to-proof mapping, and live partner pilots in the highest-value commercial wedge.</p></div>
+        </div>
+        <div class="faq-acc-item">
+          <button class="faq-acc-trigger"><span>What increases valuation from here?</span><span class="faq-icon">+</span></button>
+          <div class="faq-acc-content"><p>Partner validation, licensing conversations, pilot conversion, stronger proof packaging, and clearer commercial evidence around the lead wedge.</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -542,5 +837,293 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const canvas = document.getElementById('heroField');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let mouse = { x: null, y: null };
+      const nodeCount = 42;
+      const nodes = [];
+
+      function resize() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width * window.devicePixelRatio;
+        canvas.height = rect.height * window.devicePixelRatio;
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = rect.height + 'px';
+        ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+      }
+
+      function createNodes() {
+        nodes.length = 0;
+        const rect = canvas.parentElement.getBoundingClientRect();
+        for (let i = 0; i < nodeCount; i++) {
+          nodes.push({
+            x: Math.random() * rect.width,
+            y: Math.random() * rect.height,
+            vx: (Math.random() - 0.5) * 0.22,
+            vy: (Math.random() - 0.5) * 0.22,
+            r: Math.random() * 2 + 1,
+            core: i < 6
+          });
+        }
+      }
+
+      function draw() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        ctx.clearRect(0, 0, rect.width, rect.height);
+
+        for (const n of nodes) {
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x < 0 || n.x > rect.width) n.vx *= -1;
+          if (n.y < 0 || n.y > rect.height) n.vy *= -1;
+        }
+
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const a = nodes[i];
+            const b = nodes[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 140) {
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = `rgba(120,167,255,${0.12 - dist / 1800})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        for (const n of nodes) {
+          const glow = n.core ? 10 : 5;
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, glow, 0, Math.PI * 2);
+          ctx.fillStyle = n.core ? 'rgba(109,225,210,0.08)' : 'rgba(120,167,255,0.05)';
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fillStyle = n.core ? 'rgba(109,225,210,0.95)' : 'rgba(120,167,255,0.8)';
+          ctx.fill();
+
+          if (mouse.x !== null) {
+            const dx = mouse.x - n.x;
+            const dy = mouse.y - n.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(n.x, n.y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = 'rgba(109,225,210,0.12)';
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      window.addEventListener('resize', () => {
+        resize();
+        createNodes();
+      });
+
+      resize();
+      createNodes();
+      draw();
+    })();
+
+    (() => {
+      const filters = document.querySelectorAll('.asset-filter');
+      const cards = document.querySelectorAll('.asset-card');
+      if (!filters.length || !cards.length) return;
+
+      filters.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter;
+          filters.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          cards.forEach(card => {
+            const category = card.dataset.category;
+            const show = filter === 'all' || category === filter;
+            card.classList.toggle('hidden', !show);
+          });
+        });
+      });
+    })();
+
+    (() => {
+      const detail = {
+        enterprise: {
+          title: 'Enterprise Systems',
+          text: 'Enterprise systems provide the clearest first licensing wedge because buyer outcomes can be tied to measurable KPI drift, operational instability, and cost leakage.',
+          meta: {
+            path: 'Pilot, analytics deployment, annual software or license agreement',
+            status: 'Open-data validated, pilot-ready'
+          }
+        },
+        logistics: {
+          title: 'Logistics',
+          text: 'Logistics environments create measurable proof opportunities around volume imbalance, throughput instability, and operational stress.',
+          meta: {
+            path: 'Operational analytics, deployment pilots, sector license path',
+            status: 'Open-data validated'
+          }
+        },
+        payments: {
+          title: 'Payments',
+          text: 'Payments workflows offer a direct way to map refund, chargeback, and rework patterns into decision-support value.',
+          meta: {
+            path: 'Workflow analytics, partner deployment, use-case license',
+            status: 'Open-data validated'
+          }
+        },
+        saas: {
+          title: 'SaaS and Workflow Systems',
+          text: 'SaaS environments support cost-ratio interpretation, system inefficiency analysis, and decision-support tooling.',
+          meta: {
+            path: 'Analytics deployment, platform integration, annual license',
+            status: 'Open-data validated'
+          }
+        },
+        energy: {
+          title: 'Energy',
+          text: 'Energy and infrastructure environments support resilience interpretation, anomaly analysis, and strategic monitoring applications.',
+          meta: {
+            path: 'Pilot, infrastructure partnership, sector license',
+            status: 'Open-data validated, commercialization wedge identified'
+          }
+        },
+        batteries: {
+          title: 'Batteries and Storage',
+          text: 'Battery applications focus on state interpretation, degradation mapping, and structured monitoring logic.',
+          meta: {
+            path: 'Diagnostics partnership, OEM collaboration, license path',
+            status: 'Application mapped'
+          }
+        },
+        ai: {
+          title: 'AI Systems',
+          text: 'AI systems create a pathway for architecture reliability scoring, loop stability analysis, and multi-agent monitoring.',
+          meta: {
+            path: 'Platform integration, architecture tooling, strategic licensing',
+            status: 'Simulated proof'
+          }
+        },
+        food: {
+          title: 'Food Systems',
+          text: 'Food applications support classification, integrity analysis, and signal interpretation across complex food environments.',
+          meta: {
+            path: 'Food analytics partnership, software layer, domain license',
+            status: 'Application mapped'
+          }
+        },
+        agriculture: {
+          title: 'Agriculture',
+          text: 'Agriculture creates opportunities in environmental sensing interpretation, crop monitoring, and optimization support.',
+          meta: {
+            path: 'AgTech integration, sensor partnership, license path',
+            status: 'Application mapped'
+          }
+        },
+        health: {
+          title: 'Health-Adjacent Monitoring',
+          text: 'Health-adjacent environments support structured monitoring and early warning workflows in sensitive operational settings.',
+          meta: {
+            path: 'Workflow platform, monitoring integration, domain license',
+            status: 'Application mapped'
+          }
+        },
+        sensing: {
+          title: 'Sensing',
+          text: 'Sensing applications extend the protected method into device-level interpretation and intelligent signal processing.',
+          meta: {
+            path: 'Embedded software, hardware partnership, license path',
+            status: 'Strategic path identified'
+          }
+        },
+        infrastructure: {
+          title: 'Infrastructure',
+          text: 'Infrastructure applications support monitoring, resilience interpretation, and anomaly detection in large-scale operating environments.',
+          meta: {
+            path: 'Strategic partnership, pilot deployment, sector license',
+            status: 'Open-data and modeled proof base'
+          }
+        }
+      };
+
+      const nodes = document.querySelectorAll('.orbit-node');
+      const title = document.getElementById('domainTitle');
+      const text = document.getElementById('domainText');
+      const meta = document.getElementById('domainMeta');
+      if (!nodes.length || !title || !text || !meta) return;
+
+      nodes.forEach(node => {
+        node.addEventListener('click', () => {
+          nodes.forEach(n => n.classList.remove('active'));
+          node.classList.add('active');
+          const key = node.dataset.domain;
+          const item = detail[key];
+          if (!item) return;
+          title.textContent = item.title;
+          text.textContent = item.text;
+          meta.innerHTML = `<strong>Commercial path</strong>${item.meta.path}<strong>Status</strong>${item.meta.status}`;
+        });
+      });
+    })();
+
+    (() => {
+      const items = document.querySelectorAll('.faq-acc-item');
+      if (!items.length) return;
+
+      items.forEach(item => {
+        const trigger = item.querySelector('.faq-acc-trigger');
+        const content = item.querySelector('.faq-acc-content');
+
+        function openItem() {
+          items.forEach(other => {
+            if (other !== item) {
+              other.classList.remove('active');
+              other.querySelector('.faq-acc-content').style.maxHeight = null;
+            }
+          });
+          item.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+
+        function closeItem() {
+          item.classList.remove('active');
+          content.style.maxHeight = null;
+        }
+
+        if (item.classList.contains('active')) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+
+        trigger.addEventListener('click', () => {
+          if (item.classList.contains('active')) closeItem();
+          else openItem();
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
