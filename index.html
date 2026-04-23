@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coherence Labs IP</title>
+  <title>Coherence Labs IP | Patent Platform</title>
   <style>
     :root {
-      --bg: #08101c;
-      --bg-soft: #0d1626;
-      --panel: rgba(18, 29, 47, 0.82);
-      --panel-strong: rgba(20, 34, 56, 0.96);
-      --line: rgba(160, 184, 214, 0.16);
-      --line-strong: rgba(160, 184, 214, 0.28);
-      --text: #ecf3ff;
-      --muted: #a7b8d4;
-      --soft: #c9d7ee;
-      --accent: #78a7ff;
-      --accent-2: #6de1d2;
-      --max: 1240px;
+      --bg: #07111d;
+      --bg-2: #0b1726;
+      --panel: rgba(12, 20, 33, 0.86);
+      --panel-2: rgba(16, 27, 43, 0.92);
+      --text: #f4f8ff;
+      --muted: #98a9c5;
+      --soft: #bfd8ff;
+      --line: rgba(146, 181, 240, 0.14);
+      --line-strong: rgba(146, 181, 240, 0.26);
+      --blue: #85adff;
+      --teal: #82e7d6;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
       --radius: 24px;
-      --shadow: 0 24px 80px rgba(0,0,0,0.35);
+      --max: 1220px;
     }
 
     * { box-sizing: border-box; }
@@ -27,766 +27,16 @@
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(120,167,255,0.14), transparent 28%),
-        radial-gradient(circle at 20% 10%, rgba(109,225,210,0.08), transparent 24%),
-        linear-gradient(180deg, #07101b 0%, #091321 45%, #07101a 100%);
       color: var(--text);
-      line-height: 1.5;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-    .section { padding: 88px 0; position: relative; }
-    .section-head { max-width: 780px; margin-bottom: 32px; }
-    .eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent-2);
-      margin-bottom: 14px;
-    }
-    h1, h2, h3, h4, p { margin: 0; }
-    h1 {
-      font-size: clamp(2.6rem, 5vw, 5rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      max-width: 900px;
-    }
-    h2 {
-      font-size: clamp(1.9rem, 3vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      margin-bottom: 14px;
-    }
-    h3 {
-      font-size: 1.1rem;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-    }
-    .subhead, .lead, .muted { color: var(--muted); }
-    .subhead { font-size: 1.05rem; max-width: 760px; }
-    .lead { font-size: 1.08rem; }
-
-    .nav {
-      position: sticky; top: 0; z-index: 40;
-      backdrop-filter: blur(18px);
-      background: rgba(7, 13, 24, 0.72);
-      border-bottom: 1px solid rgba(160, 184, 214, 0.08);
-    }
-    .nav-inner {
-      min-height: 74px;
-      display: flex; align-items: center; justify-content: space-between; gap: 24px;
-    }
-    .brand { font-weight: 700; letter-spacing: -0.02em; }
-    .nav-links { display: flex; gap: 22px; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem; }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 78px 0 42px;
-    }
-    .hero-grid {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1.35fr 0.95fr;
-      gap: 30px;
-      align-items: start;
-    }
-    .hero-copy { padding-top: 18px; }
-    .hero-copy .subhead { margin-top: 20px; }
-    .hero-visual {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-    #heroField {
-      width: 100%;
-      height: 100%;
-      display: block;
-      opacity: 0.9;
-    }
-    .hero-visual-overlay {
-      position: absolute;
-      inset: 0;
       background:
-        radial-gradient(circle at 20% 20%, rgba(120,167,255,0.10), transparent 28%),
-        radial-gradient(circle at 80% 30%, rgba(109,225,210,0.08), transparent 24%),
-        linear-gradient(180deg, rgba(8,16,28,0.12), rgba(8,16,28,0.42));
+        radial-gradient(circle at 15% 10%, rgba(133,173,255,0.10), transparent 24%),
+        radial-gradient(circle at 86% 12%, rgba(130,231,214,0.08), transparent 22%),
+        linear-gradient(180deg, #06101a 0%, #081321 55%, #07111d 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .cta-row {
-      display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px;
-    }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-height: 48px; padding: 0 18px; border-radius: 999px; font-weight: 600;
-      border: 1px solid var(--line-strong); transition: 180ms ease;
-      cursor: pointer;
-    }
-    .btn.primary {
-      background: linear-gradient(135deg, rgba(120,167,255,0.22), rgba(109,225,210,0.16));
-      border-color: rgba(120,167,255,0.28);
-      box-shadow: 0 10px 30px rgba(120,167,255,0.10);
-    }
-    .btn.secondary { color: var(--soft); background: rgba(255,255,255,0.02); }
-    .btn:hover { transform: translateY(-1px); border-color: rgba(160,184,214,0.34); }
-
-    .panel {
-      background: linear-gradient(180deg, rgba(15, 24, 40, 0.9), rgba(11, 20, 34, 0.86));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero-panel { padding: 28px; position: relative; overflow: hidden; }
-    .hero-panel::before {
-      content: "";
-      position: absolute; inset: -20% auto auto -10%;
-      width: 220px; height: 220px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(120,167,255,0.18), transparent 68%);
-      pointer-events: none;
-    }
-
-    .stats-grid, .grid-2, .grid-3, .grid-4 {
-      display: grid; gap: 18px;
-    }
-    .stats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
-
-    .stat-card, .card, .matrix-card, .board, .faq-item, .chip-wrap, .step, .proof-layer {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-    }
-    .stat-card { padding: 20px; transition: transform 180ms ease, border-color 180ms ease, background 180ms ease; }
-    .stat-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(120,167,255,0.36);
-      background: rgba(21, 33, 53, 0.92);
-    }
-    .stat-card .label { color: var(--muted); font-size: 0.82rem; margin-bottom: 6px; }
-    .stat-card strong { font-size: 1.05rem; letter-spacing: -0.02em; }
-
-    .chip-wrap { padding: 18px; display: flex; flex-wrap: wrap; gap: 12px; }
-    .chip {
-      padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line);
-      color: var(--soft); background: rgba(255,255,255,0.02); font-size: 0.92rem;
-      transition: 180ms ease;
-    }
-    .chip:hover { border-color: rgba(109,225,210,0.34); background: rgba(109,225,210,0.06); }
-
-    .card, .board, .faq-item, .step, .matrix-card, .proof-layer { padding: 22px; }
-    .meta { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.93rem; }
-    .meta strong { display: block; color: var(--soft); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 8px 0 6px; }
-    .stack > * + * { margin-top: 14px; }
-
-    .claim-row, .faq-item, .step, .matrix-card, .board { position: relative; }
-    .claim-row::before, .step::before {
-      content: ""; position: absolute; top: 22px; left: 22px; width: 44px; height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-    .claim-row, .step { padding-top: 34px; }
-
-    .asset-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-    .asset-filter {
-      background: rgba(255,255,255,0.03);
-      color: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 10px 14px;
-      cursor: pointer;
-      transition: 180ms ease;
-    }
-    .asset-filter:hover,
-    .asset-filter.active {
-      border-color: rgba(120,167,255,0.45);
-      background: rgba(120,167,255,0.10);
-    }
-    .asset-card {
-      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
-    }
-    .asset-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(120,167,255,0.30);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
-    }
-    .asset-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-    .asset-tag,
-    .asset-status {
-      font-size: 0.78rem;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--soft);
-    }
-    .asset-card.hidden { display: none; }
-
-    .maturity-table {
-      overflow: hidden; border-radius: 22px; border: 1px solid var(--line);
-      background: var(--panel);
-    }
-    .maturity-head, .maturity-row {
-      display: grid; grid-template-columns: 1.3fr repeat(4, minmax(0, 1fr));
-    }
-    .maturity-head { background: rgba(255,255,255,0.02); color: var(--soft); font-weight: 600; }
-    .maturity-head div, .maturity-row div { padding: 16px 18px; border-bottom: 1px solid var(--line); }
-    .maturity-row:last-child div { border-bottom: 0; }
-    .maturity-row:hover { background: rgba(120,167,255,0.04); }
-    .yes { color: var(--accent-2); }
-    .partial { color: #ffd27a; }
-    .no { color: var(--muted); }
-
-    .proof-stack {
-      display: grid;
-      gap: 18px;
-      position: relative;
-    }
-    .proof-layer {
-      transition: transform 180ms ease, border-color 180ms ease;
-    }
-    .verification-chip {
-      position: relative;
-      cursor: help;
-    }
-    .verification-chip .chip-tip {
-      position: absolute;
-      left: 50%;
-      bottom: calc(100% + 10px);
-      transform: translateX(-50%) translateY(6px);
-      min-width: 220px;
-      max-width: 280px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(9, 17, 29, 0.96);
-      color: var(--soft);
-      font-size: 0.84rem;
-      line-height: 1.45;
-      opacity: 0;
-      pointer-events: none;
-      transition: 180ms ease;
-      box-shadow: 0 16px 30px rgba(0,0,0,0.28);
-      z-index: 8;
-    }
-    .verification-chip:hover .chip-tip {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-    .connector-map {
-      position: relative;
-      min-height: 520px;
-      overflow: hidden;
-      padding: 28px;
-    }
-    .connector-map svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-    .connector-node {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(14, 24, 39, 0.96);
-      padding: 14px 16px;
-      max-width: 210px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-    }
-    .connector-node strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.92rem;
-      color: var(--text);
-    }
-    .connector-node span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.8rem;
-      line-height: 1.4;
-    }
-    .connector-node.core {
-      width: 220px;
-      text-align: center;
-      background: radial-gradient(circle, rgba(120,167,255,0.18), rgba(9,17,29,0.98));
-      border-color: rgba(120,167,255,0.26);
-    }
-    .evidence-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .evidence-btn, .revenue-btn {
-      background: rgba(255,255,255,0.03);
-      color: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 10px 14px;
-      cursor: pointer;
-      transition: 180ms ease;
-    }
-    .evidence-btn:hover, .evidence-btn.active, .revenue-btn:hover, .revenue-btn.active {
-      border-color: rgba(109,225,210,0.40);
-      background: rgba(109,225,210,0.10);
-    }
-    .evidence-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .evidence-card {
-      padding: 22px;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background: var(--panel);
-      transition: 180ms ease;
-    }
-    .evidence-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(120,167,255,0.28);
-    }
-    .evidence-label {
-      display: inline-flex;
-      margin-top: 14px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      color: var(--soft);
-      font-size: 0.78rem;
-      background: rgba(255,255,255,0.03);
-    }
-    .revenue-switcher {
-      display: grid;
-      gap: 18px;
-    }
-    .revenue-stage {
-      display: none;
-    }
-    .revenue-stage.active {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .proof-layer:hover {
-      transform: translateY(-2px);
-      border-color: rgba(109,225,210,0.30);
-    }
-
-    .matrix-list { display: grid; gap: 14px; }
-    .matrix-card strong.status { display: inline-block; margin-top: 12px; color: var(--accent-2); font-size: 0.92rem; }
-
-    .domain-orbit-layout {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-    .domain-orbit-wrap {
-      position: relative;
-      min-height: 520px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at center, rgba(120,167,255,0.08), transparent 18%),
-        radial-gradient(circle at center, rgba(109,225,210,0.04), transparent 40%);
-    }
-    .domain-orbit-wrap::before,
-    .domain-orbit-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 50%;
-      transform: translate(-50%, -50%);
-      border: 1px solid rgba(160,184,214,0.10);
-      border-radius: 50%;
-    }
-    .domain-orbit-wrap::before { width: 320px; height: 320px; }
-    .domain-orbit-wrap::after { width: 440px; height: 440px; }
-    .orbit-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 180px;
-      height: 180px;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: radial-gradient(circle, rgba(120,167,255,0.18), rgba(8,16,28,0.92));
-      border: 1px solid rgba(120,167,255,0.22);
-      box-shadow: 0 0 50px rgba(120,167,255,0.12);
-    }
-    .orbit-node {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      border: 1px solid var(--line);
-      background: rgba(16, 27, 43, 0.94);
-      color: var(--soft);
-      border-radius: 999px;
-      padding: 10px 14px;
-      cursor: pointer;
-      transition: 180ms ease;
-    }
-    .orbit-node:hover,
-    .orbit-node.active {
-      border-color: rgba(109,225,210,0.40);
-      background: rgba(109,225,210,0.10);
-      color: #fff;
-      box-shadow: 0 0 24px rgba(109,225,210,0.10);
-    }
-    .domain-detail { padding: 24px; }
-
-    .checklist { display: grid; gap: 12px; margin: 20px 0 28px; }
-    .check {
-      padding: 12px 14px; border-radius: 16px; border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02); color: var(--soft);
-    }
-
-    .faq-accordion {
-      display: grid;
-      gap: 14px;
-    }
-    .faq-acc-item {
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: var(--panel);
-      overflow: hidden;
-    }
-    .faq-acc-trigger {
-      width: 100%;
-      background: transparent;
-      border: 0;
-      color: var(--text);
-      cursor: pointer;
-      padding: 20px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      text-align: left;
-      font-weight: 600;
-    }
-    .faq-icon {
-      font-size: 1.3rem;
-      color: var(--accent-2);
-      transition: transform 180ms ease;
-    }
-    .faq-acc-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 220ms ease;
-    }
-    .faq-acc-content p {
-      margin: 0;
-      padding: 0 22px 20px;
-      color: var(--muted);
-    }
-    .faq-acc-item.active .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    .footer {
-      padding: 36px 0 52px; border-top: 1px solid rgba(160,184,214,0.10);
-      color: var(--muted);
-    }
-    .footer-inner {
-      display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-    }
-    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    @media (max-width: 1080px) {
-      .hero-grid, .grid-4 { grid-template-columns: 1fr; }
-      .evidence-grid, .revenue-stage.active { grid-template-columns: 1fr; }
-      .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .maturity-head, .maturity-row { grid-template-columns: 1.4fr repeat(4, minmax(120px, 1fr)); }
-    }
-    @media (max-width: 980px) {
-      .domain-orbit-layout { grid-template-columns: 1fr; }
-      .domain-orbit-wrap { min-height: 460px; }
-    }
-    @media (max-width: 760px) {
-      .container { width: min(var(--max), calc(100% - 24px)); }
-      .section { padding: 64px 0; }
-      .nav-links { display: none; }
-      .stats-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .maturity-table { overflow-x: auto; }
-      .maturity-head, .maturity-row { min-width: 760px; }
-      .cta-row { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
-      .orbit-node { font-size: 0.82rem; padding: 8px 10px; }
-      .orbit-center { width: 150px; height: 150px; font-size: 0.9rem; }
-    }
-      .hero-panel {
-      position: relative;
-      overflow: hidden;
-    }
-    .orbital-visual {
-      position: relative;
-      height: 320px;
-      border-radius: 24px;
-      background: radial-gradient(circle at center, rgba(120,167,255,0.14), rgba(5,10,18,0.92) 60%);
-      border: 1px solid rgba(120,167,255,0.16);
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-    .orbital-core {
-      position: absolute;
-      width: 110px;
-      height: 110px;
-      border-radius: 999px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(109,225,210,0.65), rgba(120,167,255,0.18) 55%, rgba(0,0,0,0) 72%);
-      filter: blur(1px);
-      box-shadow: 0 0 60px rgba(109,225,210,0.18);
-    }
-    .orbital-ring {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      border-radius: 999px;
-      border: 1px solid rgba(120,167,255,0.16);
-      transform: translate(-50%, -50%);
-    }
-    .ring-a { width: 170px; height: 170px; animation: spin 18s linear infinite; }
-    .ring-b { width: 240px; height: 240px; animation: spin-rev 22s linear infinite; }
-    .ring-c { width: 300px; height: 300px; animation: spin 28s linear infinite; }
-    .orbital-node {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #8bdcff;
-      box-shadow: 0 0 18px rgba(139,220,255,0.7);
-    }
-    .n1 { top: 22%; left: 50%; }
-    .n2 { top: 50%; left: 18%; }
-    .n3 { top: 72%; left: 58%; }
-    .n4 { top: 38%; left: 78%; }
-    .mini-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-    .mini-stats div {
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-    }
-    .mini-stats strong {
-      display: block;
-      font-size: 1rem;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .mini-stats span {
-      color: var(--muted);
-      font-size: 0.8rem;
-      line-height: 1.4;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .grid-5 {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .flow-step {
-      position: relative;
-      padding: 22px;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      transition: 180ms ease;
-    }
-    .flow-step:hover {
-      transform: translateY(-4px);
-      border-color: rgba(109,225,210,0.28);
-    }
-    .flow-step span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(120,167,255,0.22);
-      color: var(--soft);
-      background: rgba(120,167,255,0.08);
-      font-size: 0.85rem;
-    }
-    .asset-grid .asset-card,
-    .board,
-    .faq-item {
-      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-    }
-    .asset-grid .asset-card:hover,
-    .board:hover,
-    .faq-item:hover {
-      transform: translateY(-4px);
-      border-color: rgba(120,167,255,0.26);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.18);
-    }
-    .interactive-timeline {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 22px;
-      align-items: start;
-    }
-    .timeline-nav {
-      display: grid;
-      gap: 12px;
-    }
-    .timeline-btn {
-      text-align: left;
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--soft);
-      cursor: pointer;
-      transition: 180ms ease;
-    }
-    .timeline-btn.active,
-    .timeline-btn:hover {
-      border-color: rgba(109,225,210,0.34);
-      background: rgba(109,225,210,0.08);
-    }
-    .timeline-stage {
-      display: none;
-      min-height: 280px;
-      position: relative;
-      overflow: hidden;
-      padding: 24px;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background: radial-gradient(circle at top right, rgba(120,167,255,0.12), rgba(8,13,22,0.96));
-    }
-    .timeline-stage.active { display: block; }
-    .timeline-stage::after {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      right: -40px;
-      top: -40px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(109,225,210,0.16), rgba(0,0,0,0));
-      pointer-events: none;
-    }
-    .domain-radar {
-      position: relative;
-      min-height: 380px;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background: radial-gradient(circle at center, rgba(120,167,255,0.08), rgba(8,13,22,0.95));
-      overflow: hidden;
-    }
-    .domain-radar::before,
-    .domain-radar::after {
-      content: "";
-      position: absolute;
-      inset: 12% 12%;
-      border-radius: 999px;
-      border: 1px solid rgba(120,167,255,0.10);
-    }
-    .domain-radar::after {
-      inset: 24% 24%;
-    }
-    .radar-sweep {
-      position: absolute;
-      width: 50%;
-      height: 2px;
-      left: 50%;
-      top: 50%;
-      transform-origin: left center;
-      background: linear-gradient(90deg, rgba(109,225,210,0.75), rgba(109,225,210,0));
-      animation: spin 9s linear infinite;
-      opacity: 0.85;
-    }
-    .radar-dot {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: #8bdcff;
-      box-shadow: 0 0 18px rgba(139,220,255,0.65);
-    }
-    .radar-label {
-      position: absolute;
-      color: var(--soft);
-      font-size: 0.82rem;
-      line-height: 1.35;
-      max-width: 150px;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    @keyframes spin-rev {
-      from { transform: rotate(360deg); }
-      to { transform: rotate(0deg); }
-    }
-    @media (max-width: 1080px) {
-      .grid-3, .grid-5, .mini-stats, .interactive-timeline {
-        grid-template-columns: 1fr;
-      }
-    }
-    :root {
-      --bg: #07111d;
-      --panel: rgba(10, 17, 28, 0.82);
-      --panel-2: rgba(15, 24, 38, 0.88);
-      --line: rgba(151, 190, 255, 0.14);
-      --line-strong: rgba(151, 190, 255, 0.24);
-      --text: #f4f8ff;
-      --muted: #99a8c2;
-      --soft: #b8d5ff;
-      --accent: #7fb0ff;
-      --accent-2: #84ecd9;
-      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
-    }
-    body {
-      background:
-        radial-gradient(circle at 15% 10%, rgba(127, 176, 255, 0.10), rgba(0,0,0,0) 28%),
-        radial-gradient(circle at 85% 12%, rgba(132, 236, 217, 0.08), rgba(0,0,0,0) 22%),
-        linear-gradient(180deg, #06101b 0%, #07111d 42%, #08131f 100%);
-    }
-    .site-shell {
-      position: relative;
-      overflow: hidden;
-    }
-    .site-shell::before {
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
@@ -795,432 +45,492 @@
         linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
       background-size: 42px 42px;
-      mask-image: radial-gradient(circle at center, black 38%, transparent 88%);
-      opacity: 0.42;
+      mask-image: radial-gradient(circle at center, black 38%, transparent 86%);
+      opacity: 0.45;
     }
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(16px);
-      background: rgba(7, 13, 22, 0.72);
-      border-bottom: 1px solid rgba(151, 190, 255, 0.10);
-    }
-    .brand {
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      color: var(--soft);
-    }
-    .topnav a {
-      color: var(--muted);
-      transition: color 160ms ease;
-    }
-    .topnav a:hover { color: var(--text); }
-    .btn {
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
-    }
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.18);
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, rgba(127,176,255,0.95), rgba(132,236,217,0.90));
-      color: #06101a;
-      border: none;
-    }
-    .btn-ghost {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      color: var(--text);
-    }
-    .section {
-      padding: 88px 0;
-      position: relative;
-    }
-    .section-head {
-      max-width: 820px;
-      margin-bottom: 28px;
-    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .section { position: relative; padding: 86px 0; }
+    .section-head { max-width: 820px; margin-bottom: 28px; }
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 14px;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(132, 236, 217, 0.16);
-      background: rgba(132, 236, 217, 0.06);
-      color: var(--accent-2);
-      font-size: 0.76rem;
-      letter-spacing: 0.09em;
+      border: 1px solid rgba(130,231,214,0.16);
+      background: rgba(130,231,214,0.06);
+      color: var(--teal);
       text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 0.76rem;
+      margin-bottom: 14px;
     }
-    .hero {
-      padding-top: 104px;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(400px, 0.9fr);
-      gap: 34px;
-      align-items: center;
-    }
-    .hero h1 {
-      max-width: 880px;
-      font-size: clamp(2.5rem, 5vw, 4.6rem);
-      line-height: 0.97;
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1 {
+      font-size: clamp(2.7rem, 5vw, 4.8rem);
+      line-height: 0.96;
       letter-spacing: -0.04em;
-      margin: 0 0 18px;
-    }
-    .lede {
-      max-width: 760px;
-      font-size: 1.1rem;
-      line-height: 1.75;
-      color: var(--muted);
-    }
-    .panel,
-    .board,
-    .asset-card,
-    .faq-item,
-    .flow-step,
-    .timeline-stage {
-      background: linear-gradient(180deg, rgba(18, 27, 42, 0.86), rgba(10, 17, 28, 0.92));
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-    .board,
-    .asset-card,
-    .faq-item {
-      border-radius: 24px;
-      padding: 24px;
-    }
-    .subhead,
-    .muted {
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .credibility-strip {
-      padding-top: 18px;
-      padding-bottom: 18px;
-    }
-    .chip-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .chip {
-      position: relative;
-      padding: 12px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--soft);
-      font-size: 0.88rem;
-      cursor: default;
-      transition: border-color 160ms ease, background 160ms ease;
-    }
-    .chip:hover {
-      border-color: var(--line-strong);
-      background: rgba(127,176,255,0.06);
-    }
-    .chip-tip {
-      position: absolute;
-      left: 0;
-      top: calc(100% + 10px);
-      width: 260px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: rgba(8, 12, 20, 0.98);
-      color: var(--muted);
-      font-size: 0.78rem;
-      line-height: 1.5;
-      opacity: 0;
-      transform: translateY(6px);
-      pointer-events: none;
-      transition: 150ms ease;
-      z-index: 5;
-    }
-    .chip:hover .chip-tip {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .asset-filters,
-    .evidence-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      max-width: 860px;
       margin-bottom: 18px;
     }
-    .asset-filter,
-    .evidence-btn,
-    .revenue-btn,
-    .timeline-btn {
-      font: inherit;
+    h2 {
+      font-size: clamp(1.9rem, 3.3vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
     }
-    .asset-filter,
-    .evidence-btn,
-    .revenue-btn {
-      padding: 11px 14px;
+    h3 {
+      font-size: 1.04rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .lede, .subhead, .muted {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .lede { font-size: 1.08rem; max-width: 760px; }
+    .grid-2 { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .card, .panel, .lane, .faq-item, .story-card, .domain-card, .diligence-card, .matrix-wrap {
+      background: linear-gradient(180deg, rgba(16,27,43,0.88), rgba(9,16,27,0.94));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .card, .lane, .faq-item, .story-card, .domain-card, .diligence-card { padding: 24px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(7, 13, 22, 0.74);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(146, 181, 240, 0.10);
+    }
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      min-height: 74px;
+    }
+    .brand {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--soft);
+      white-space: nowrap;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .nav a:hover { color: var(--text); }
+    .nav-cta { display: flex; gap: 10px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--line-strong); }
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(133,173,255,0.95), rgba(130,231,214,0.90));
+      color: #06111a;
+      border: none;
+    }
+    .btn-secondary { background: rgba(255,255,255,0.03); color: var(--text); }
+
+    .hero { padding-top: 102px; }
+    .mini-stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 22px; }
+    .mini-stats > div, .proof-chip {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+    .mini-stats strong { display: block; font-size: 0.95rem; margin-bottom: 6px; }
+    .mini-stats span { color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
+    .hero-visual {
+      position: relative;
+      min-height: 540px;
+      overflow: hidden;
+      padding: 24px;
+    }
+    .hero-core {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      width: 180px;
+      height: 180px;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(130,231,214,0.22);
+      background: radial-gradient(circle, rgba(133,173,255,0.22), rgba(130,231,214,0.08) 60%, rgba(8,13,22,0.92) 100%);
+      box-shadow: 0 0 80px rgba(133,173,255,0.14);
+      z-index: 2;
+    }
+    .hero-ring {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-radius: 999px;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(133,173,255,0.11);
+      animation: pulse 6s ease-in-out infinite;
+    }
+    .ring-1 { width: 280px; height: 280px; }
+    .ring-2 { width: 410px; height: 410px; animation-delay: 0.8s; }
+    .ring-3 { width: 530px; height: 530px; animation-delay: 1.4s; }
+    .orbit-node {
+      position: absolute;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(10,17,28,0.92);
+      color: var(--soft);
+      font-size: 0.82rem;
+      white-space: nowrap;
+      box-shadow: var(--shadow);
+      animation: float 6s ease-in-out infinite;
+    }
+    .orbit-node small { display: block; color: var(--muted); font-size: 0.7rem; margin-top: 3px; }
+
+    .executive-grid .card { min-height: 170px; }
+
+    .moat-wrap {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .moat-diagram {
+      position: relative;
+      min-height: 580px;
+      display: grid;
+      place-items: center;
+    }
+    .moat-circle {
+      position: absolute;
+      border-radius: 999px;
+      border: 1px solid rgba(133,173,255,0.12);
+      display: grid;
+      place-items: center;
+    }
+    .moat-core { width: 180px; height: 180px; background: radial-gradient(circle, rgba(133,173,255,0.18), rgba(8,13,22,0.96)); z-index: 2; }
+    .moat-l1 { width: 320px; height: 320px; }
+    .moat-l2 { width: 470px; height: 470px; }
+    .moat-l3 { width: 620px; height: 620px; }
+    .moat-label {
+      position: absolute;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(10,17,28,0.95);
+      font-size: 0.82rem;
+      color: var(--soft);
+      box-shadow: var(--shadow);
+    }
+    .moat-label span { display: block; font-size: 0.7rem; color: var(--muted); margin-top: 4px; }
+
+    .wedge-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; }
+    .wedge-points { display: grid; gap: 12px; margin-top: 18px; }
+    .wedge-points div, .faq-item, .proof-chip {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      padding: 16px;
+    }
+
+    .domain-map {
+      position: relative;
+      min-height: 760px;
+      padding: 30px;
+      overflow: hidden;
+    }
+    .domain-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 210px;
+      height: 210px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      background: radial-gradient(circle, rgba(133,173,255,0.22), rgba(130,231,214,0.08) 60%, rgba(8,13,22,0.94) 100%);
+      border: 1px solid rgba(130,231,214,0.22);
+      z-index: 2;
+    }
+    .domain-cluster {
+      position: absolute;
+      width: 230px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(10,17,28,0.92);
+      box-shadow: var(--shadow);
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .domain-cluster:hover { transform: translateY(-4px); border-color: var(--line-strong); }
+    .domain-cluster ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .domain-cluster li { margin: 6px 0; }
+
+    .matrix-toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .filter-btn, .proof-filter {
+      padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
       color: var(--soft);
       cursor: pointer;
-      transition: 160ms ease;
-    }
-    .asset-filter:hover,
-    .evidence-btn:hover,
-    .revenue-btn:hover,
-    .asset-filter.active,
-    .evidence-btn.active,
-    .revenue-btn.active {
-      background: rgba(127,176,255,0.09);
-      border-color: rgba(127,176,255,0.26);
-      color: var(--text);
-    }
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .asset-card {
-      min-height: 200px;
-      overflow: hidden;
-      position: relative;
-    }
-    .asset-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -40px auto;
-      width: 160px;
-      height: 160px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(127,176,255,0.12), rgba(0,0,0,0));
-      pointer-events: none;
-    }
-    .connector-map {
-      min-height: 520px;
-      border-radius: 28px;
-      background: radial-gradient(circle at center, rgba(127,176,255,0.08), rgba(8,13,22,0.95));
-    }
-    .connector-node {
-      position: absolute;
-      width: 184px;
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(11, 18, 30, 0.92);
-      transform: translate(-50%, -50%);
-      box-shadow: var(--shadow);
-    }
-    .connector-node strong,
-    .board h3,
-    .asset-card h3,
-    .faq-item h3,
-    .timeline-stage h3,
-    .flow-step h3 {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 1.02rem;
-      color: var(--text);
-    }
-    .connector-node span,
-    .evidence-label {
-      color: var(--muted);
-      font-size: 0.8rem;
-      line-height: 1.55;
-    }
-    .connector-node.core {
-      background: linear-gradient(180deg, rgba(127,176,255,0.18), rgba(132,236,217,0.10));
-      border-color: rgba(132,236,217,0.28);
-    }
-    .evidence-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .evidence-card {
-      position: relative;
-      padding: 22px;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(17, 26, 40, 0.86), rgba(9, 16, 27, 0.94));
-      box-shadow: var(--shadow);
       transition: 180ms ease;
     }
-    .evidence-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(132,236,217,0.24);
+    .filter-btn.active, .proof-filter.active, .filter-btn:hover, .proof-filter:hover {
+      background: rgba(133,173,255,0.10);
+      border-color: rgba(133,173,255,0.28);
+      color: var(--text);
     }
-    .evidence-label {
+    .matrix-wrap { padding: 18px; overflow: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 980px; }
+    th, td { padding: 14px 12px; border-bottom: 1px solid rgba(146,181,240,0.10); text-align: left; vertical-align: top; }
+    th { color: var(--soft); font-size: 0.86rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    td:first-child { color: var(--text); font-weight: 600; width: 240px; }
+    .status-chip {
       display: inline-flex;
-      margin-top: 14px;
+      align-items: center;
+      gap: 6px;
       padding: 8px 10px;
       border-radius: 999px;
-      background: rgba(132,236,217,0.07);
-      border: 1px solid rgba(132,236,217,0.14);
-      color: var(--accent-2);
+      font-size: 0.78rem;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--soft);
     }
-    .revenue-stage {
-      display: none;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 10px;
+    .validated { background: rgba(130,231,214,0.09); color: var(--teal); border-color: rgba(130,231,214,0.18); }
+    .mapped { background: rgba(133,173,255,0.09); color: var(--blue); border-color: rgba(133,173,255,0.18); }
+    .pilot { background: rgba(255,226,158,0.10); color: #f6d78e; border-color: rgba(246,215,142,0.18); }
+    .future { background: rgba(255,255,255,0.04); color: var(--muted); }
+
+    .funnel {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 16px;
+      align-items: stretch;
     }
-    .revenue-stage.active { display: grid; }
-    .cta-band {
-      padding-top: 96px;
-      padding-bottom: 110px;
+    .funnel-step {
+      position: relative;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16,27,43,0.88), rgba(9,16,27,0.95));
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
-    .cta-panel {
+    .funnel-step::after {
+      content: "→";
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(133,173,255,0.30);
+      font-size: 2rem;
+      z-index: 0;
+    }
+    .funnel-step:last-child::after { display: none; }
+
+    .dashboard { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px; }
+    .dashboard-col { display: grid; gap: 18px; }
+    .metric { font-size: 2rem; line-height: 1; margin-bottom: 8px; }
+    .progress {
+      height: 10px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 14px;
+    }
+    .progress span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(133,173,255,0.9), rgba(130,231,214,0.9));
+    }
+
+    .proof-controls, .revenue-controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .proof-grid, .story-grid, .faq-grid, .diligence-grid, .revenue-grid, .license-grid { display: grid; gap: 18px; }
+    .proof-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .license-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .revenue-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .story-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .diligence-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .license-grid .lane { position: relative; overflow: hidden; }
+    .license-grid .lane::before, .story-card::before, .diligence-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -60px;
+      bottom: -60px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(133,173,255,0.12), transparent 65%);
+      pointer-events: none;
+    }
+    .story-flow {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .story-flow span {
+      padding: 9px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: var(--soft);
+      font-size: 0.78rem;
+    }
+
+    .revenue-board { display: none; }
+    .revenue-board.active { display: block; }
+
+    .cta-band .panel {
       padding: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
       border-radius: 30px;
-      background: linear-gradient(135deg, rgba(20,31,49,0.94), rgba(11,18,28,0.95));
-      border: 1px solid rgba(151,190,255,0.16);
     }
+
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.72; }
+      50% { transform: translate(-50%, -50%) scale(1.02); opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
     @media (max-width: 1180px) {
-      .hero-grid,
-      .grid-4,
-      .evidence-grid,
-      .revenue-stage {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .grid-2, .moat-wrap, .wedge-wrap, .dashboard, .proof-grid, .license-grid, .story-grid, .revenue-grid, .diligence-grid {
+        grid-template-columns: 1fr 1fr;
       }
+      .funnel { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .funnel-step::after { display: none; }
     }
-    @media (max-width: 860px) {
-      .hero-grid,
-      .grid-4,
-      .evidence-grid,
-      .revenue-stage,
-      .cta-panel {
+
+    @media (max-width: 900px) {
+      .nav, .nav-cta { display: none; }
+      .grid-2, .grid-3, .grid-4, .moat-wrap, .wedge-wrap, .dashboard, .proof-grid, .license-grid, .story-grid, .faq-grid, .revenue-grid, .diligence-grid, .funnel, .mini-stats, .cta-band .panel {
         grid-template-columns: 1fr;
         display: grid;
       }
-      .topnav,
-      .topcta {
-        display: none;
+      .hero-visual, .domain-map, .moat-diagram { min-height: auto; padding-bottom: 34px; }
+      .hero-ring, .moat-circle { display: none; }
+      .domain-center, .hero-core {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin: 0 auto 20px;
       }
-      .hero h1 {
-        font-size: 2.5rem;
+      .orbit-node, .domain-cluster, .moat-label {
+        position: relative;
+        margin: 10px 0;
+        inset: auto !important;
+        transform: none !important;
+        width: 100%;
       }
-      .section {
-        padding: 64px 0;
-      }
+      h1 { font-size: 2.6rem; }
+      .section { padding: 66px 0; }
+      .container { width: min(var(--max), calc(100% - 28px)); }
     }
-</style>
+  </style>
 </head>
 <body>
-  <div class="site-shell">
-    <header class="topbar">
-      <div class="brand">Coherence Labs IP</div>
-      <nav class="topnav">
-        <a href="#assets">Patent Assets</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#hero" class="brand">Coherence Labs IP</a>
+      <nav class="nav">
+        <a href="#platform">Patent Platform</a>
+        <a href="#applications">Applications</a>
         <a href="#proof">Proof</a>
-        <a href="#revenue">Revenue Architecture</a>
-        <a href="#faq">Investor FAQ</a>
+        <a href="#licensing">Licensing</a>
+        <a href="#faq">FAQ</a>
       </nav>
-      <div class="topcta">
-        <a class="btn btn-ghost" href="#partner">Partner Materials</a>
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="#contact">Partner Materials</a>
         <a class="btn btn-primary" href="#contact">Discuss Licensing</a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <section class="hero section">
-      <div class="container hero-grid">
+  <main>
+    <section class="section hero" id="hero">
+      <div class="container grid-2">
         <div>
           <div class="eyebrow">Patent-backed system intelligence</div>
           <h1>A patent-backed intelligence platform built for licensing across high-value sectors</h1>
           <p class="lede">Coherence Labs IP is building a patent-positioned company around a protected system intelligence method designed to detect instability, improve decision quality, and support commercialization across enterprise operations, logistics, energy, batteries, food systems, agriculture, and AI environments.</p>
-          <div class="cta-row">
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
             <a class="btn btn-primary" href="#contact">Discuss Licensing</a>
-            <a class="btn btn-ghost" href="#partner">Review Partner Materials</a>
+            <a class="btn btn-secondary" href="#diligence">Review Partner Materials</a>
           </div>
-          <div class="mini-stats" style="margin-top:20px; max-width:760px;">
+          <div class="mini-stats">
             <div><strong>Patent-backed architecture</strong><span>Structured as a licensable platform asset, not a one-feature product.</span></div>
             <div><strong>20 domain pathways</strong><span>Commercial expansion potential across multiple high-value sectors.</span></div>
             <div><strong>Licensing-first model</strong><span>Designed for pilots, annual licenses, and strategic partnerships.</span></div>
           </div>
         </div>
-        <div class="hero-panel panel">
-          <div class="orbital-visual">
-            <div class="orbital-core"></div>
-            <div class="orbital-ring ring-a"></div>
-            <div class="orbital-ring ring-b"></div>
-            <div class="orbital-ring ring-c"></div>
-            <div class="orbital-node n1"></div>
-            <div class="orbital-node n2"></div>
-            <div class="orbital-node n3"></div>
-            <div class="orbital-node n4"></div>
-          </div>
-          <div class="mini-stats">
-            <div><strong>Open-data proof packages</strong><span>Visible evidence can support investor diligence and early partner conversations.</span></div>
-            <div><strong>Operational wedge first</strong><span>Initial commercialization starts where instability already creates cost.</span></div>
-            <div><strong>Scalable licensing logic</strong><span>Proof in one domain can strengthen value across the broader portfolio.</span></div>
-          </div>
+        <div class="panel hero-visual">
+          <div class="hero-ring ring-1"></div>
+          <div class="hero-ring ring-2"></div>
+          <div class="hero-ring ring-3"></div>
+          <div class="hero-core"><div><strong>Protected Core Method</strong><br><span class="muted">System intelligence architecture</span></div></div>
+          <div class="orbit-node" style="left:14%; top:18%;"><strong>Patent Asset Layer</strong><small>claims, figures, architecture</small></div>
+          <div class="orbit-node" style="right:10%; top:24%; animation-delay:1s;"><strong>Domain Expansion</strong><small>20 commercial pathways</small></div>
+          <div class="orbit-node" style="left:8%; bottom:24%; animation-delay:1.8s;"><strong>Proof Pathway</strong><small>validated, mapped, pilot-ready</small></div>
+          <div class="orbit-node" style="right:8%; bottom:18%; animation-delay:2.4s;"><strong>Licensing Logic</strong><small>pilot, annual, strategic</small></div>
         </div>
       </div>
     </section>
 
-    <section class="section credibility-strip">
-      <div class="container chip-wrap">
-        <div class="chip verification-chip">Patent-backed core architecture<span class="chip-tip">Protected core invention organized into a licensable patent position.</span></div>
-        <div class="chip verification-chip">20 domain application pathways<span class="chip-tip">The portfolio is being framed as a platform asset with multiple licensing lanes.</span></div>
-        <div class="chip verification-chip">Open-data proof packages<span class="chip-tip">Selected sectors already have evidence packaged through modeled proof.</span></div>
-        <div class="chip verification-chip">Licensing-first commercialization model<span class="chip-tip">Revenue is framed around pilots, licenses, and strategic partnerships.</span></div>
-        <div class="chip verification-chip">Pilot-ready lead use cases<span class="chip-tip">Initial buyer wedges can convert into validation programs and design partners.</span></div>
-        <div class="chip verification-chip">Expandable into software and embedded systems<span class="chip-tip">Long-term value can extend into platform integrations and sector deals.</span></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Lead licensing wedge</div>
-          <h2>The first licensing wedge is operational intelligence</h2>
-          <p class="subhead">The fastest path to commercialization is licensing the core method into environments where instability already creates measurable economic loss. The initial wedge focuses on enterprise systems, logistics, payment workflows, and process-heavy software environments.</p>
-        </div>
-        <div class="grid-3">
-          <article class="board">
-            <h3>Enterprise Operations</h3>
-            <p class="muted">Detect instability, drift, and hidden cost leakage across complex operating systems.</p>
-          </article>
-          <article class="board">
-            <h3>Logistics and Fulfillment</h3>
-            <p class="muted">Support throughput, routing, recovery, and exception-heavy workflow environments.</p>
-          </article>
-          <article class="board">
-            <h3>Payments and Workflow Systems</h3>
-            <p class="muted">Identify rework, refund, chargeback, and process-friction patterns that reduce efficiency.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
+    <section class="section" id="platform">
       <div class="container">
         <div class="section-head">
           <div class="eyebrow">Executive Snapshot</div>
           <h2>What a strategic investor should understand in under 60 seconds</h2>
           <p class="subhead">This company is being positioned as a patent-led licensing platform with an initial operational intelligence wedge, a visible proof pathway, and expansion optionality across 20 domains.</p>
         </div>
-        <div class="grid-3">
-          <article class="board">
+        <div class="grid-3 executive-grid">
+          <article class="card">
             <h3>What is owned</h3>
             <p class="muted">A protected system intelligence architecture positioned for licensing across multiple sector environments.</p>
           </article>
-          <article class="board">
+          <article class="card">
             <h3>What commercializes first</h3>
             <p class="muted">Operational intelligence in enterprise, logistics, payments, and workflow-heavy systems.</p>
           </article>
-          <article class="board">
+          <article class="card">
             <h3>What compounds value</h3>
             <p class="muted">Proof, partner validation, and conversion of the core method into annual license relationships.</p>
           </article>
@@ -1228,97 +538,117 @@
       </div>
     </section>
 
-    <section class="section" id="assets">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Patent Assets</div>
-          <h2>Core patent assets with licensing potential</h2>
-          <p class="subhead">Lead assets are presented first to help investors and partners understand where licensing value can emerge most clearly.</p>
+    <section class="section">
+      <div class="container moat-wrap">
+        <div>
+          <div class="eyebrow">Patent Platform</div>
+          <h2>A protected core method with multiple licensing pathways</h2>
+          <p class="subhead">Coherence Labs IP is being positioned around a protected core method that can support multiple commercialization paths. The value is not tied to one feature or one market. It expands through claim families, technical architecture, proof generation, and sector-specific licensing opportunities.</p>
+          <div class="card" style="margin-top:22px;">
+            <h3>Why this visual matters</h3>
+            <p class="muted">This is the fastest way to show that the company owns more than an idea. It owns a structured patent position that can be extended into multiple domains and monetization paths.</p>
+            <p class="muted" style="margin-bottom:0;"><strong style="color:var(--text);">Commercial message:</strong> One protected architecture, multiple routes to licensing revenue.</p>
+          </div>
         </div>
-        <div class="asset-filters">
-          <button class="asset-filter active" data-filter="all">All assets</button>
-          <button class="asset-filter" data-filter="core">Core</button>
-          <button class="asset-filter" data-filter="operations">Operations</button>
-          <button class="asset-filter" data-filter="infrastructure">Infrastructure</button>
-          <button class="asset-filter" data-filter="future">Strategic expansion</button>
-        </div>
-        <div class="grid-4 asset-grid">
-          <article class="asset-card" data-category="core"><h3>Protected Core Method</h3><p class="muted">Foundational patent position around coherence-based system intelligence and decision architecture.</p></article>
-          <article class="asset-card" data-category="operations"><h3>Enterprise Intelligence Layer</h3><p class="muted">Licensing pathway for operational monitoring, instability detection, and performance optimization.</p></article>
-          <article class="asset-card" data-category="operations"><h3>Logistics and Network Optimization</h3><p class="muted">Application family for movement systems, throughput environments, routing workflows, and recovery operations.</p></article>
-          <article class="asset-card" data-category="infrastructure"><h3>Energy and Infrastructure Systems</h3><p class="muted">Application family for grid, infrastructure, resilience, and large-scale system coordination environments.</p></article>
-          <article class="asset-card" data-category="infrastructure"><h3>Battery and Storage Intelligence</h3><p class="muted">Licensing pathway for battery systems, performance interpretation, state analysis, and optimization support.</p></article>
-          <article class="asset-card" data-category="operations"><h3>Food and Agriculture Intelligence</h3><p class="muted">Application family for food integrity, agricultural monitoring, classification, and system-level optimization.</p></article>
-          <article class="asset-card" data-category="future"><h3>AI and Multi-Agent Reliability</h3><p class="muted">Licensing pathway for agent coordination, drift detection, scoring, and reliability management.</p></article>
-          <article class="asset-card" data-category="future"><h3>Embedded and Strategic Expansion Rights</h3><p class="muted">Longer-term licensing path into enterprise platforms, hardware-adjacent environments, and strategic sector partnerships.</p></article>
+        <div class="panel moat-diagram">
+          <div class="moat-circle moat-l3"></div>
+          <div class="moat-circle moat-l2"></div>
+          <div class="moat-circle moat-l1"></div>
+          <div class="moat-circle moat-core"><div style="text-align:center; padding:22px;"><strong>Protected Core Method</strong><br><span class="muted">Coherence-based system intelligence architecture</span></div></div>
+          <div class="moat-label" style="left:7%; top:20%;"><strong>Claim Families</strong><span>protected architecture</span></div>
+          <div class="moat-label" style="right:6%; top:22%;"><strong>Technical Figures</strong><span>defined system framing</span></div>
+          <div class="moat-label" style="left:14%; top:46%;"><strong>Scoring Logic</strong><span>signal interpretation layer</span></div>
+          <div class="moat-label" style="right:12%; top:49%;"><strong>Decision Architecture</strong><span>output and action layer</span></div>
+          <div class="moat-label" style="left:18%; bottom:17%;"><strong>Domain Licensing</strong><span>enterprise, logistics, energy, food</span></div>
+          <div class="moat-label" style="right:8%; bottom:14%;"><strong>Monetization Layer</strong><span>pilot, annual, strategic</span></div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">From Patent Claim to Paid License</div>
-          <h2>See how the portfolio moves from invention to monetization</h2>
-          <p class="subhead">Instead of a static process strip, this interactive timeline lets investors and partners explore each commercialization stage.</p>
-        </div>
-        <div class="interactive-timeline">
-          <div class="timeline-nav">
-            <button class="timeline-btn active" data-stage="claims">01, Protected Claims</button>
-            <button class="timeline-btn" data-stage="framing">02, Technical Framing</button>
-            <button class="timeline-btn" data-stage="proof">03, Proof Layer</button>
-            <button class="timeline-btn" data-stage="deploy">04, Commercial Deployment</button>
-            <button class="timeline-btn" data-stage="expand">05, Revenue Expansion</button>
+      <div class="container wedge-wrap">
+        <div>
+          <div class="eyebrow">Lead Licensing Wedge</div>
+          <h2>The first commercial wedge is operational intelligence</h2>
+          <p class="subhead">The initial licensing path is strongest where instability already creates measurable cost, recurring friction, or decision complexity. That makes operational systems the most practical early entry point.</p>
+          <div class="wedge-points">
+            <div><strong>Enterprise operations</strong><br><span class="muted">Recurring decision environments where hidden instability already creates cost.</span></div>
+            <div><strong>Logistics and fulfillment</strong><br><span class="muted">Complex movement systems with clear operational relevance.</span></div>
+            <div><strong>Payments and workflow systems</strong><br><span class="muted">High-volume environments where signal quality and intervention logic matter.</span></div>
+            <div><strong>SaaS cost and efficiency environments</strong><br><span class="muted">Software-led systems where recurring licenses fit naturally.</span></div>
           </div>
-          <div>
-            <div class="timeline-stage active" data-stage-panel="claims">
-              <h3>Protected Claims</h3>
-              <p class="muted">The core method is organized into a licensable patent position, creating the legal and strategic foundation for commercialization.</p>
-            </div>
-            <div class="timeline-stage" data-stage-panel="framing">
-              <h3>Technical Framing</h3>
-              <p class="muted">Figures, claim architecture, and application families make the invention legible across multiple sectors and buyer types.</p>
-            </div>
-            <div class="timeline-stage" data-stage-panel="proof">
-              <h3>Proof Layer</h3>
-              <p class="muted">Open-data POCs, simulations, and partner validation create visible evidence that can support both investor diligence and licensing conversations.</p>
-            </div>
-            <div class="timeline-stage" data-stage-panel="deploy">
-              <h3>Commercial Deployment</h3>
-              <p class="muted">The method can be packaged into pilot programs, software deployments, or partner integrations depending on the sector and buyer.</p>
-            </div>
-            <div class="timeline-stage" data-stage-panel="expand">
-              <h3>Revenue Expansion</h3>
-              <p class="muted">Initial licenses can expand into annual contracts, embedded relationships, and larger multi-domain strategic agreements.</p>
-            </div>
+        </div>
+        <div class="card">
+          <h3>Why this wedge comes first</h3>
+          <div class="wedge-points">
+            <div><strong>Visible business pain</strong><br><span class="muted">The value proposition is easier to explain and test.</span></div>
+            <div><strong>Easier commercial framing</strong><br><span class="muted">Operators already understand instability, cost, delay, and rework.</span></div>
+            <div><strong>Stronger proof narrative</strong><br><span class="muted">Early examples connect well to investor and partner diligence.</span></div>
+            <div><strong>Faster path to pilot revenue</strong><br><span class="muted">Operational systems create the clearest route into licensing.</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="applications">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Claim-to-Proof Connector Map</div>
-          <h2>Show how invention turns into proof and then into commercialization</h2>
-          <p class="subhead">The portfolio becomes easier to understand when the protected core method is visibly connected to evidence categories and revenue outcomes.</p>
+          <div class="eyebrow">Domain Expansion</div>
+          <h2>A single protected architecture with expansion across 20 commercial domains</h2>
+          <p class="subhead">The company should not be perceived as a single-product opportunity. The strength of the IP is that one protected core method can be extended across multiple high-value sectors, creating licensing optionality and long-term strategic value.</p>
         </div>
-        <div class="connector-map panel">
-          <svg viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M500 260 C560 200, 620 170, 720 120" stroke="rgba(120,167,255,0.22)" stroke-width="2" fill="none" />
-            <path d="M500 260 C570 240, 650 240, 760 260" stroke="rgba(109,225,210,0.20)" stroke-width="2" fill="none" />
-            <path d="M500 260 C560 320, 630 360, 720 400" stroke="rgba(120,167,255,0.22)" stroke-width="2" fill="none" />
-            <path d="M280 120 C360 160, 420 200, 500 260" stroke="rgba(109,225,210,0.18)" stroke-width="2" fill="none" />
-            <path d="M240 260 C340 260, 410 260, 500 260" stroke="rgba(120,167,255,0.18)" stroke-width="2" fill="none" />
-            <path d="M280 400 C360 360, 420 320, 500 260" stroke="rgba(109,225,210,0.18)" stroke-width="2" fill="none" />
-          </svg>
-          <div class="connector-node" style="top:22%; left:20%;"><strong>Protected Claims</strong><span>Filed invention, method logic, domain extensions</span></div>
-          <div class="connector-node" style="top:50%; left:16%;"><strong>Figures and Architecture</strong><span>Technical framing, use-case logic, system design</span></div>
-          <div class="connector-node" style="top:78%; left:20%;"><strong>Commercial Use Cases</strong><span>Sector packaging, deployment pathways, licensing fit</span></div>
-          <div class="connector-node core" style="top:50%; left:50%;"><strong>Protected Core Method</strong><span>Coherence-based system intelligence architecture</span></div>
-          <div class="connector-node" style="top:22%; left:78%;"><strong>Evidence Base</strong><span>Open-data POCs, simulations, modeled outputs</span></div>
-          <div class="connector-node" style="top:50%; left:82%;"><strong>Partner Validation</strong><span>Pilot conversion, design partners, live operational proof</span></div>
-          <div class="connector-node" style="top:78%; left:78%;"><strong>Revenue Outcomes</strong><span>Annual licenses, software deals, strategic partnerships</span></div>
+        <div class="panel domain-map">
+          <div class="domain-center"><div><strong>Protected Core Method</strong><br><span class="muted">Core method at the center, commercial pathways around it</span></div></div>
+          <div class="domain-cluster" style="left:4%; top:8%;">
+            <h3>Operational Systems</h3>
+            <ul>
+              <li>Enterprise Operations</li>
+              <li>Workflow Intelligence</li>
+              <li>SaaS Cost Systems</li>
+              <li>Payments</li>
+              <li>Margin and Rework Monitoring</li>
+            </ul>
+          </div>
+          <div class="domain-cluster" style="right:4%; top:10%;">
+            <h3>Movement and Logistics Systems</h3>
+            <ul>
+              <li>Logistics</li>
+              <li>Fulfillment</li>
+              <li>Shipping Networks</li>
+              <li>Fleet Coordination</li>
+              <li>Airspace and Routing Systems</li>
+            </ul>
+          </div>
+          <div class="domain-cluster" style="left:2%; bottom:12%;">
+            <h3>Infrastructure and Physical Systems</h3>
+            <ul>
+              <li>Energy Systems</li>
+              <li>Grid Environments</li>
+              <li>Batteries</li>
+              <li>Storage Systems</li>
+              <li>Infrastructure Monitoring</li>
+            </ul>
+          </div>
+          <div class="domain-cluster" style="right:2%; bottom:10%;">
+            <h3>Food and Agriculture Systems</h3>
+            <ul>
+              <li>Food Systems</li>
+              <li>Agricultural Inputs</li>
+              <li>Classification Systems</li>
+              <li>Quality Monitoring</li>
+              <li>Integrity Scoring</li>
+            </ul>
+          </div>
+          <div class="domain-cluster" style="left:50%; bottom:4%; transform:translateX(-50%); width:300px;">
+            <h3>Advanced and Embedded Systems</h3>
+            <ul>
+              <li>AI Reliability</li>
+              <li>Multi-Agent Systems</li>
+              <li>Sensor-driven Systems</li>
+              <li>Embedded Environments</li>
+              <li>Strategic Defense Pathways</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -1326,26 +656,125 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Domain Opportunity Radar</div>
-          <h2>Visualize where the portfolio can expand first</h2>
-          <p class="subhead">This radar-style visual gives the page a more premium feel while reinforcing the breadth of the patent platform.</p>
+          <div class="eyebrow">Application Structure</div>
+          <h2>How the patent position expands across commercial domains</h2>
+          <p class="subhead">This matrix shows how the core patent architecture can map into real operating environments. It helps investors see structure, and it helps licensing partners understand where the IP can be applied first.</p>
         </div>
-        <div class="domain-radar panel">
-          <div class="radar-sweep"></div>
-          <div class="radar-dot" style="top:18%; left:47%;"></div>
-          <div class="radar-label" style="top:11%; left:49%;">Enterprise operations</div>
-          <div class="radar-dot" style="top:34%; left:72%;"></div>
-          <div class="radar-label" style="top:28%; left:74%;">Logistics</div>
-          <div class="radar-dot" style="top:61%; left:78%;"></div>
-          <div class="radar-label" style="top:62%; left:80%;">Payments</div>
-          <div class="radar-dot" style="top:74%; left:56%;"></div>
-          <div class="radar-label" style="top:76%; left:58%;">Energy</div>
-          <div class="radar-dot" style="top:64%; left:28%;"></div>
-          <div class="radar-label" style="top:66%; left:10%;">Batteries</div>
-          <div class="radar-dot" style="top:38%; left:22%;"></div>
-          <div class="radar-label" style="top:30%; left:6%;">Food and agriculture</div>
-          <div class="radar-dot" style="top:50%; left:50%;"></div>
-          <div class="radar-label" style="top:53%; left:52%;">Protected core method</div>
+        <div class="matrix-toolbar">
+          <button class="filter-btn active" data-filter="all">All domains</button>
+          <button class="filter-btn" data-filter="validated">Validated</button>
+          <button class="filter-btn" data-filter="mapped">Mapped</button>
+          <button class="filter-btn" data-filter="pilot">Pilot-ready</button>
+          <button class="filter-btn" data-filter="future">Future expansion</button>
+        </div>
+        <div class="matrix-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Claim Family</th>
+                <th>Enterprise</th>
+                <th>Logistics</th>
+                <th>Payments</th>
+                <th>SaaS</th>
+                <th>Energy</th>
+                <th>Batteries</th>
+                <th>Food</th>
+                <th>Agriculture</th>
+                <th>AI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Core computational method</td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip future">Future expansion</span></td>
+              </tr>
+              <tr>
+                <td>Coherence scoring and state interpretation</td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+              </tr>
+              <tr>
+                <td>Instability detection and decision support</td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip pilot">Pilot-ready</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip future">Future expansion</span></td>
+              </tr>
+              <tr>
+                <td>Domain adaptation framework</td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip pilot">Pilot-ready</span></td>
+                <td><span class="status-chip pilot">Pilot-ready</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+              </tr>
+              <tr>
+                <td>System architecture and deployment logic</td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+              </tr>
+              <tr>
+                <td>Output and action layer</td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip validated">Validated</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip mapped">Mapped</span></td>
+                <td><span class="status-chip future">Future expansion</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Commercialization Model</div>
+          <h2>From protected invention to recurring licensing revenue</h2>
+          <p class="subhead">The commercialization path is designed to convert IP into staged revenue, starting with proof and partner access, then expanding into annual and strategic licensing.</p>
+        </div>
+        <div class="funnel">
+          <div class="funnel-step"><h3>Protected Invention</h3><p class="muted">Filed claims, technical architecture, and defined application families create the foundation of the IP position.</p></div>
+          <div class="funnel-step"><h3>Proof Packaging</h3><p class="muted">Figures, domain narratives, evidence materials, and proof packages make the invention commercially legible.</p></div>
+          <div class="funnel-step"><h3>Pilot Deployment</h3><p class="muted">Sector-specific testing or partner deployment creates early validation and lowers adoption friction.</p></div>
+          <div class="funnel-step"><h3>Commercial License</h3><p class="muted">The method becomes part of an annual licensing relationship tied to software, workflow, infrastructure, or system use.</p></div>
+          <div class="funnel-step"><h3>Strategic Expansion</h3><p class="muted">Partners can expand into embedded integration, broader deployment rights, or larger strategic agreements.</p></div>
         </div>
       </div>
     </section>
@@ -1353,58 +782,145 @@
     <section class="section" id="proof">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Proof by Domain</div>
-          <h2>Proof and verification by domain</h2>
-          <p class="subhead">This section should separate already-demonstrated domains from mapped or simulation-stage domains.</p>
+          <div class="eyebrow">Proof and Verification</div>
+          <h2>Structured evidence designed for investor diligence and partner confidence</h2>
+          <p class="subhead">A strong IP company needs more than broad claims. It needs a visible proof structure. This dashboard organizes the portfolio into validated, mapped, and expansion-stage pathways so investors and partners can understand what exists today and what increases value next.</p>
         </div>
-        <div class="evidence-controls">
-          <button class="evidence-btn active" data-evidence="all">All evidence states</button>
-          <button class="evidence-btn" data-evidence="validated">Open-data validated</button>
-          <button class="evidence-btn" data-evidence="simulated">Simulated or modeled</button>
-          <button class="evidence-btn" data-evidence="mapped">Application mapped</button>
-          <button class="evidence-btn" data-evidence="pilot">Pilot-ready</button>
-        </div>
-        <div class="evidence-grid">
-          <article class="evidence-card" data-evidence-state="validated pilot"><h3>Enterprise Systems</h3><p class="muted"><strong>Status:</strong> Open-data proof completed<br><strong>Evidence:</strong> Operational modeling and commercial framing prepared<br><strong>Next step:</strong> Convert into a live pilot or design partner engagement</p><span class="evidence-label">Validated, Pilot-ready</span></article>
-          <article class="evidence-card" data-evidence-state="validated"><h3>Logistics</h3><p class="muted"><strong>Status:</strong> Open-data proof completed<br><strong>Evidence:</strong> Throughput and operational signal modeling prepared<br><strong>Next step:</strong> Validate in a live workflow environment</p><span class="evidence-label">Validated</span></article>
-          <article class="evidence-card" data-evidence-state="validated"><h3>Payments and Refunds</h3><p class="muted"><strong>Status:</strong> Open-data proof completed<br><strong>Evidence:</strong> Chargeback, refund, and rework modeling prepared<br><strong>Next step:</strong> Deploy into a transaction workflow partner environment</p><span class="evidence-label">Validated</span></article>
-          <article class="evidence-card" data-evidence-state="validated"><h3>SaaS and Workflow Systems</h3><p class="muted"><strong>Status:</strong> Open-data proof completed<br><strong>Evidence:</strong> Cost-ratio and inefficiency modeling prepared<br><strong>Next step:</strong> Convert into an enterprise software design partnership</p><span class="evidence-label">Validated</span></article>
-          <article class="evidence-card" data-evidence-state="validated mapped"><h3>Energy and Infrastructure</h3><p class="muted"><strong>Status:</strong> Proof layer developing<br><strong>Evidence:</strong> Application and deployment logic mapped<br><strong>Next step:</strong> Secure partner access to operating data</p><span class="evidence-label">Validated, Mapped</span></article>
-          <article class="evidence-card" data-evidence-state="mapped"><h3>Batteries and Storage</h3><p class="muted"><strong>Status:</strong> Application family mapped<br><strong>Evidence:</strong> Licensing logic and system pathway defined<br><strong>Next step:</strong> Technical validation with a sector partner</p><span class="evidence-label">Mapped</span></article>
-          <article class="evidence-card" data-evidence-state="simulated"><h3>AI and Multi-Agent Reliability</h3><p class="muted"><strong>Status:</strong> Simulation-stage evidence<br><strong>Evidence:</strong> Architecture scoring and drift management pathway defined<br><strong>Next step:</strong> Validate with a partner product environment</p><span class="evidence-label">Simulated</span></article>
-          <article class="evidence-card" data-evidence-state="mapped"><h3>Food Systems</h3><p class="muted"><strong>Status:</strong> Application family mapped<br><strong>Evidence:</strong> Classification and system-intelligence pathway defined<br><strong>Next step:</strong> Build validation partnership</p><span class="evidence-label">Mapped</span></article>
-          <article class="evidence-card" data-evidence-state="mapped"><h3>Agriculture</h3><p class="muted"><strong>Status:</strong> Application family mapped<br><strong>Evidence:</strong> Monitoring and optimization pathway defined<br><strong>Next step:</strong> Develop sector-specific pilot design</p><span class="evidence-label">Mapped</span></article>
+        <div class="dashboard">
+          <div class="dashboard-col">
+            <article class="card">
+              <div class="metric">4</div>
+              <h3>Validated open-data domains</h3>
+              <p class="muted">Enterprise, Logistics, Payments, SaaS</p>
+              <div class="progress"><span style="width:72%"></span></div>
+            </article>
+            <article class="card">
+              <div class="metric">4</div>
+              <h3>Mapped application families</h3>
+              <p class="muted">Energy, Batteries, Food, Agriculture</p>
+              <div class="progress"><span style="width:58%"></span></div>
+            </article>
+          </div>
+          <div class="dashboard-col">
+            <article class="card">
+              <div class="metric">3</div>
+              <h3>Advanced or expansion domains</h3>
+              <p class="muted">AI, Multi-Agent Systems, Embedded Environments</p>
+              <div class="progress"><span style="width:42%"></span></div>
+            </article>
+            <article class="card">
+              <h3>Commercial readiness markers</h3>
+              <div class="proof-chip">Lead licensing wedge defined</div>
+              <div class="proof-chip">Partner-facing materials in development</div>
+              <div class="proof-chip">Pilot structure available</div>
+              <div class="proof-chip">Annual licensing logic established</div>
+            </article>
+          </div>
+          <div class="dashboard-col">
+            <article class="card">
+              <h3>What increases value next</h3>
+              <div class="proof-chip">Signed pilot</div>
+              <div class="proof-chip">Named design partner</div>
+              <div class="proof-chip">Live operational validation</div>
+              <div class="proof-chip">First annual commercial license</div>
+            </article>
+            <article class="card">
+              <h3>Why this structure matters</h3>
+              <p class="muted">This section helps separate what is already supported by visible proof from what is structured as a future commercial extension. That increases credibility.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="revenue">
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Proof by Domain</div>
+          <h2>Proof and relevance across key application pathways</h2>
+          <p class="subhead">The company is organizing proof by domain so that investors and partners can see where the strongest evidence exists today and where strategic expansion is developing next.</p>
+        </div>
+        <div class="proof-controls">
+          <button class="proof-filter active" data-target="all">All</button>
+          <button class="proof-filter" data-target="validated">Validated</button>
+          <button class="proof-filter" data-target="mapped">Mapped</button>
+          <button class="proof-filter" data-target="expansion">Expansion-stage</button>
+        </div>
+        <div class="proof-grid">
+          <article class="domain-card" data-state="validated"><h3>Enterprise</h3><p class="muted">Validated domain with strong fit for operational intelligence and recurring licensing.</p><span class="status-chip validated">Validated</span></article>
+          <article class="domain-card" data-state="validated"><h3>Logistics</h3><p class="muted">Validated domain with visible operational relevance and strong pilot logic.</p><span class="status-chip validated">Validated</span></article>
+          <article class="domain-card" data-state="validated"><h3>Payments</h3><p class="muted">Validated domain where workflow friction and decision support can be commercialized.</p><span class="status-chip validated">Validated</span></article>
+          <article class="domain-card" data-state="validated"><h3>SaaS</h3><p class="muted">Software-aligned use environment that supports annual commercial licensing.</p><span class="status-chip validated">Validated</span></article>
+          <article class="domain-card" data-state="mapped"><h3>Energy</h3><p class="muted">Mapped application family with clear infrastructure and monitoring relevance.</p><span class="status-chip mapped">Mapped</span></article>
+          <article class="domain-card" data-state="mapped"><h3>Batteries</h3><p class="muted">Mapped pathway for performance interpretation, warning logic, and optimization framing.</p><span class="status-chip mapped">Mapped</span></article>
+          <article class="domain-card" data-state="mapped"><h3>Food</h3><p class="muted">Mapped classification and integrity pathway with broader system-level application potential.</p><span class="status-chip mapped">Mapped</span></article>
+          <article class="domain-card" data-state="mapped"><h3>Agriculture</h3><p class="muted">Mapped monitoring and scoring pathway for quality and system interpretation environments.</p><span class="status-chip mapped">Mapped</span></article>
+          <article class="domain-card" data-state="expansion"><h3>AI</h3><p class="muted">Expansion-stage domain that supports longer-term strategic optionality.</p><span class="status-chip future">Expansion-stage</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="licensing">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Licensing Pathways</div>
+          <h2>Three ways partners can license the IP</h2>
+          <p class="subhead">Not every partner should enter the platform the same way. This model gives the company a clear way to structure early access, recurring licensing, and larger strategic relationships.</p>
+        </div>
+        <div class="license-grid">
+          <article class="lane">
+            <h3>Pilot License</h3>
+            <p class="muted">A limited-scope license designed for early deployment, validation, or commercial testing in a defined domain or operating environment.</p>
+            <p><strong>Best for:</strong> <span class="muted">Design partners, early operators, innovation teams, and first sector adopters</span></p>
+            <p><strong>Primary value:</strong> <span class="muted">Creates proof, lowers adoption friction, and opens the door to recurring revenue</span></p>
+          </article>
+          <article class="lane">
+            <h3>Annual Commercial License</h3>
+            <p class="muted">A recurring licensing model tied to software use, workflow deployment, infrastructure monitoring, or domain-specific commercial implementation.</p>
+            <p><strong>Best for:</strong> <span class="muted">Enterprise platforms, operational software environments, and recurring-use partners</span></p>
+            <p><strong>Primary value:</strong> <span class="muted">Transforms the IP from project-based opportunity into recurring revenue</span></p>
+          </article>
+          <article class="lane">
+            <h3>Strategic or Embedded License</h3>
+            <p class="muted">A broader licensing structure for integration into larger systems, product ecosystems, or multi-domain commercial relationships.</p>
+            <p><strong>Best for:</strong> <span class="muted">Major platforms, infrastructure partners, strategic investors, and long-term commercial collaborators</span></p>
+            <p><strong>Primary value:</strong> <span class="muted">Creates expansion potential, broader market access, and larger enterprise value</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="container">
         <div class="section-head">
           <div class="eyebrow">Revenue Architecture</div>
-          <h2>Revenue architecture built for licensing, not one-off services</h2>
-          <p class="subhead">The model is designed to start with narrow commercial wedges and expand into higher-value recurring licensing relationships.</p>
+          <h2>Revenue architecture built for compounding value</h2>
+          <p class="subhead">The goal is not one-time technical work. The goal is to turn proof into recurring licensing and strategic leverage.</p>
         </div>
-        <div class="revenue-switcher">
-          <div class="evidence-controls">
-            <button class="revenue-btn active" data-revenue="near">Near-term</button>
-            <button class="revenue-btn" data-revenue="mid">Mid-term</button>
-            <button class="revenue-btn" data-revenue="strategic">Strategic</button>
+        <div class="revenue-controls">
+          <button class="proof-filter active" data-revenue="entry">Entry revenue</button>
+          <button class="proof-filter" data-revenue="recurring">Recurring revenue</button>
+          <button class="proof-filter" data-revenue="strategic">Strategic revenue</button>
+        </div>
+        <div class="revenue-board active" id="revenue-entry">
+          <div class="revenue-grid">
+            <article class="card"><h3>Pilots</h3><p class="muted">Early validation agreements that create proof and commercial momentum.</p></article>
+            <article class="card"><h3>Design partner agreements</h3><p class="muted">Partner-led deployment structures that strengthen credibility and access.</p></article>
+            <article class="card"><h3>Scoped deployments</h3><p class="muted">Focused implementations that convert the architecture into initial paid use.</p></article>
           </div>
-          <div class="revenue-stage active" data-revenue-stage="near">
-            <article class="board"><h3>Pilot Revenue</h3><p class="muted">Paid pilots generate proof, reference accounts, and early commercial traction.</p></article>
-            <article class="board"><h3>Software Deployments</h3><p class="muted">Partners can package the method into software layers, decision tools, or deployment programs.</p></article>
-            <article class="board"><h3>Design Partner Agreements</h3><p class="muted">Early collaborations strengthen buyer proof and reduce the gap between evidence and licensing.</p></article>
+        </div>
+        <div class="revenue-board" id="revenue-recurring">
+          <div class="revenue-grid">
+            <article class="card"><h3>Annual licensing</h3><p class="muted">Recurring agreements tied to ongoing use in software or operational environments.</p></article>
+            <article class="card"><h3>Software integrations</h3><p class="muted">Commercial use of the protected method within broader product or platform layers.</p></article>
+            <article class="card"><h3>Domain-specific agreements</h3><p class="muted">Repeatable licensing structures built for sector use and renewal.</p></article>
           </div>
-          <div class="revenue-stage" data-revenue-stage="mid">
-            <article class="board"><h3>Annual Licensing Revenue</h3><p class="muted">Partners license the protected method into software, workflow systems, or sector-specific products.</p></article>
-            <article class="board"><h3>Domain Expansion Licenses</h3><p class="muted">Additional sectors can be licensed as proof accumulates and partner demand widens.</p></article>
-            <article class="board"><h3>Embedded Partnerships</h3><p class="muted">Integration into product stacks, sensing platforms, and operational systems expands reach.</p></article>
-          </div>
-          <div class="revenue-stage" data-revenue-stage="strategic">
-            <article class="board"><h3>Strategic Expansion Revenue</h3><p class="muted">Larger opportunities emerge through embedded partnerships, exclusivity structures, and multi-domain licensing agreements.</p></article>
-            <article class="board"><h3>Research and Validation Alliances</h3><p class="muted">Institutional partnerships can deepen proof and improve licensing defensibility.</p></article>
-            <article class="board"><h3>Platform-Level IP Positioning</h3><p class="muted">Long-term value comes from compounding proof across multiple protected application families.</p></article>
+        </div>
+        <div class="revenue-board" id="revenue-strategic">
+          <div class="revenue-grid">
+            <article class="card"><h3>Embedded product deals</h3><p class="muted">Broader integration of the protected architecture into strategic environments.</p></article>
+            <article class="card"><h3>Expansion rights</h3><p class="muted">Larger agreements that extend usage into additional domains or geographies.</p></article>
+            <article class="card"><h3>Strategic partnerships</h3><p class="muted">Longer-term structures that build enterprise value beyond one deployment.</p></article>
           </div>
         </div>
       </div>
@@ -1413,45 +929,35 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Investor Logic</div>
-          <h2>Why this can become valuable</h2>
+          <div class="eyebrow">Commercial Use Cases</div>
+          <h2>How the IP can operate inside real environments</h2>
+          <p class="subhead">A strong patent platform becomes more persuasive when buyers can quickly see how it maps into practical use. These storyboards help translate the core architecture into real operating contexts without overloading the page with technical detail.</p>
         </div>
-        <div class="grid-4">
-          <article class="board"><h3>Platform IP, not a single feature</h3><p class="muted">The value sits in the protected method and its ability to support multiple downstream commercialization paths.</p></article>
-          <article class="board"><h3>Multi-domain optionality</h3><p class="muted">One patent-backed foundation can support a portfolio of sector-specific licensing opportunities.</p></article>
-          <article class="board"><h3>Licensing leverage</h3><p class="muted">The company can monetize through pilots, annual licenses, software deployments, and strategic partnerships.</p></article>
-          <article class="board"><h3>Proof can compound over time</h3><p class="muted">Each validated domain strengthens the broader IP position and increases future commercial leverage.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="partner">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Partner Value</div>
-          <h2>Why a partner would license this</h2>
-          <p class="subhead">A licensing partner does not need to build a new intelligence framework from scratch. Licensing provides a faster path to introduce a differentiated signal layer into an existing product, workflow, or sector environment.</p>
-        </div>
-        <div class="grid-3">
-          <article class="board"><h3>Accelerate product differentiation</h3><p class="muted">Bring a new intelligence layer into an existing offering more quickly.</p></article>
-          <article class="board"><h3>Reduce internal R&amp;D time</h3><p class="muted">Shorten the path from concept to deployment by licensing rather than rebuilding.</p></article>
-          <article class="board"><h3>Secure expansion rights</h3><p class="muted">Gain access to broader commercial pathways tied to the patent family.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Commercial Readiness</div>
-          <h2>How the page now guides an investor or partner through the story</h2>
-          <p class="subhead">The UX is now ordered around a clearer commercial sequence: asset quality, first wedge, proof structure, revenue design, and licensing rationale.</p>
-        </div>
-        <div class="grid-4">
-          <article class="board"><h3>1, Asset quality</h3><p class="muted">Lead with the strength of the core patent position and application families.</p></article>
-          <article class="board"><h3>2, Commercial wedge</h3><p class="muted">Show exactly where the first license or pilot is most likely to happen.</p></article>
-          <article class="board"><h3>3, Evidence and proof</h3><p class="muted">Separate validated domains from mapped and simulation-stage domains.</p></article>
-          <article class="board"><h3>4, Revenue design</h3><p class="muted">Clarify how pilot revenue can expand into annual and strategic licensing.</p></article>
+        <div class="story-grid">
+          <article class="story-card">
+            <h3>Enterprise Operations</h3>
+            <div class="story-flow">
+              <span>Operational data inputs</span><span>Interpretation layer</span><span>Instability detection</span><span>Decision support</span><span>Efficiency outcome</span>
+            </div>
+            <p class="muted">In enterprise and operational environments, the IP can function as a system intelligence layer that helps identify hidden instability, interpret system state, and support higher-quality decisions.</p>
+            <p><strong>Commercial value:</strong> <span class="muted">Supports licensing into workflow-heavy systems where instability already creates cost.</span></p>
+          </article>
+          <article class="story-card">
+            <h3>Battery and Storage Systems</h3>
+            <div class="story-flow">
+              <span>System state inputs</span><span>Scoring layer</span><span>Warning logic</span><span>Action support</span><span>Optimization pathway</span>
+            </div>
+            <p class="muted">In battery and storage environments, the same core architecture can be framed as a monitoring and decision-support layer that helps interpret changing system conditions and support optimization.</p>
+            <p><strong>Commercial value:</strong> <span class="muted">Opens a pathway into energy storage, battery monitoring, and infrastructure-related licensing conversations.</span></p>
+          </article>
+          <article class="story-card">
+            <h3>Food and Agriculture Systems</h3>
+            <div class="story-flow">
+              <span>Sensor inputs</span><span>Classification layer</span><span>Coherence scoring</span><span>System monitoring</span><span>Quality support</span>
+            </div>
+            <p class="muted">In food and agriculture settings, the architecture can be positioned as a system-level classification and monitoring layer that supports quality interpretation, integrity scoring, and broader operational intelligence.</p>
+            <p><strong>Commercial value:</strong> <span class="muted">Creates expansion potential in food systems, agricultural inputs, classification environments, and related licensing markets.</span></p>
+          </article>
         </div>
       </div>
     </section>
@@ -1459,97 +965,97 @@
     <section class="section" id="faq">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Investor FAQ</div>
-          <h2>Questions an investor will ask first</h2>
+          <div class="eyebrow">Investor and Licensing FAQ</div>
+          <h2>Answers to the questions most likely to shape diligence</h2>
         </div>
-        <div class="faq-list">
-          <article class="faq-item"><h3>What is the company selling?</h3><p class="muted">The company is building a patent-backed licensing business around a protected system intelligence method that can be deployed across multiple sectors.</p></article>
-          <article class="faq-item"><h3>Is this a software company or an IP company?</h3><p class="muted">It is best understood as an IP-led company that can monetize through software, pilots, licensing agreements, and strategic partnerships.</p></article>
-          <article class="faq-item"><h3>What is the first market wedge?</h3><p class="muted">The first commercial wedge is operational intelligence, where instability already creates measurable cost and performance loss.</p></article>
-          <article class="faq-item"><h3>What proof exists today?</h3><p class="muted">The strongest current proof comes from open-data POC work in enterprise operations, logistics, payment workflows, and software-like environments, with additional sectors mapped for expansion.</p></article>
-          <article class="faq-item"><h3>Why is this valuable beyond one sector?</h3><p class="muted">Because the protected method is positioned as a platform asset that can be adapted across multiple industries rather than a narrow point solution.</p></article>
-          <article class="faq-item"><h3>What would increase value fastest?</h3><p class="muted">Signed pilots, named design partners, partner-led validation, and visible conversion from proof into annual licensing.</p></article>
+        <div class="faq-grid">
+          <article class="faq-item"><h3>What exactly is being licensed</h3><p class="muted">The protected method, architecture, application logic, and deployment pathway associated with the patent-backed platform.</p></article>
+          <article class="faq-item"><h3>Why is operations the first commercial wedge</h3><p class="muted">Because operational environments create the clearest early path to visible value, proof, and recurring licenses.</p></article>
+          <article class="faq-item"><h3>How broad is the domain opportunity</h3><p class="muted">The core architecture is being organized across 20 domain pathways, with different levels of proof and readiness.</p></article>
+          <article class="faq-item"><h3>What proof exists today</h3><p class="muted">Visible proof is strongest in enterprise, logistics, payments, and SaaS, with mapped pathways in other sectors.</p></article>
+          <article class="faq-item"><h3>What increases value next</h3><p class="muted">A signed pilot, named design partner, live operational validation, and the first annual commercial license.</p></article>
+          <article class="faq-item"><h3>How does revenue scale from here</h3><p class="muted">Through pilots, annual commercial licenses, and larger strategic or embedded licensing relationships.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diligence">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Diligence Materials</div>
+          <h2>Built to support serious investor and licensing conversations</h2>
+          <p class="subhead">A patent company should look prepared for real diligence. This section signals that the business is not just presenting a concept. It is organizing the materials needed for investor review, partner evaluation, and commercial discussions.</p>
+        </div>
+        <div class="diligence-grid">
+          <article class="diligence-card"><h3>Patent Family Overview</h3><p class="muted">A high-level summary of the protected core method, claim structure, and application family architecture.</p></article>
+          <article class="diligence-card"><h3>Claim Architecture</h3><p class="muted">A structured view of how the core claims map into multiple commercial domains and use environments.</p></article>
+          <article class="diligence-card"><h3>Proof Packages</h3><p class="muted">Evidence materials, figures, domain narratives, and validation framing designed to support understanding and confidence.</p></article>
+          <article class="diligence-card"><h3>POC Reports</h3><p class="muted">Selected reports and domain examples that help demonstrate proof logic, commercial relevance, and early deployment framing.</p></article>
+          <article class="diligence-card"><h3>Licensing Structure</h3><p class="muted">Defined pathways for pilot licenses, annual commercial agreements, and broader strategic or embedded licensing.</p></article>
+          <article class="diligence-card"><h3>Partner Materials</h3><p class="muted">Commercial-facing materials designed to support early conversations with operators, platforms, strategic partners, and investors.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section cta-band" id="contact">
-      <div class="container panel cta-panel">
-        <div>
-          <div class="eyebrow">Strategic conversations</div>
-          <h2>Built for investors seeking platform IP, and partners seeking licensing advantage</h2>
-        </div>
-        <div class="cta-row">
-          <a class="btn btn-ghost" href="#revenue">Review Licensing Opportunities</a>
-          <a class="btn btn-primary" href="mailto:hello@coherencelabsip.com">Start a Strategic Conversation</a>
+      <div class="container">
+        <div class="panel">
+          <div>
+            <div class="eyebrow">Licensing and Strategic Discussions</div>
+            <h2>Explore licensing, strategic partnership, or early pilot discussions</h2>
+            <p class="subhead">Coherence Labs IP is building a patent-led commercialization model across multiple high-value domains. We are open to conversations with strategic partners, operators, and investors aligned with licensing, deployment, validation, or long-term platform expansion.</p>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="mailto:hello@coherencelabsip.com">Discuss Licensing</a>
+            <a class="btn btn-secondary" href="#diligence">Review Partner Materials</a>
+          </div>
         </div>
       </div>
     </section>
-  </div>
+  </main>
 
   <script>
-    (() => {
-      const filters = document.querySelectorAll('.asset-filter');
-      const cards = document.querySelectorAll('.asset-card');
-      filters.forEach(button => {
-        button.addEventListener('click', () => {
-          const filter = button.dataset.filter;
-          filters.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-          cards.forEach(card => {
-            const show = filter === 'all' || card.dataset.category === filter;
-            card.classList.toggle('hidden', !show);
-          });
+    const proofFilters = document.querySelectorAll('.proof-filter[data-target]');
+    const domainCards = document.querySelectorAll('.domain-card');
+    proofFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        proofFilters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.target;
+        domainCards.forEach(card => {
+          card.style.display = target === 'all' || card.dataset.state === target ? 'block' : 'none';
         });
       });
-    })();
+    });
 
-    (() => {
-      const buttons = document.querySelectorAll('.evidence-btn');
-      const cards = document.querySelectorAll('.evidence-card');
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const key = button.dataset.evidence;
-          buttons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-          cards.forEach(card => {
-            const states = (card.dataset.evidenceState || '').split(' ');
-            const show = key === 'all' || states.includes(key);
-            card.style.display = show ? '' : 'none';
-          });
-        });
+    const revenueButtons = document.querySelectorAll('[data-revenue]');
+    const revenueBoards = {
+      entry: document.getElementById('revenue-entry'),
+      recurring: document.getElementById('revenue-recurring'),
+      strategic: document.getElementById('revenue-strategic')
+    };
+    revenueButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        revenueButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        Object.values(revenueBoards).forEach(board => board.classList.remove('active'));
+        revenueBoards[btn.dataset.revenue].classList.add('active');
       });
-    })();
+    });
 
-    (() => {
-      const buttons = document.querySelectorAll('.revenue-btn');
-      const stages = document.querySelectorAll('.revenue-stage');
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const key = button.dataset.revenue;
-          buttons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-          stages.forEach(stage => {
-            stage.classList.toggle('active', stage.dataset.revenueStage === key);
-          });
+    const matrixButtons = document.querySelectorAll('.filter-btn');
+    const table = document.querySelector('table');
+    matrixButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        matrixButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const mode = btn.dataset.filter;
+        table.querySelectorAll('tbody td:not(:first-child)').forEach(cell => {
+          const chip = cell.querySelector('.status-chip');
+          cell.style.opacity = mode === 'all' || chip.classList.contains(mode) ? '1' : '0.28';
         });
       });
-    })();
-
-    (() => {
-      const buttons = document.querySelectorAll('.timeline-btn');
-      const panels = document.querySelectorAll('.timeline-stage');
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const key = button.dataset.stage;
-          buttons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-          panels.forEach(panel => {
-            panel.classList.toggle('active', panel.dataset.stagePanel === key);
-          });
-        });
-      });
-    })();
+    });
   </script>
 </body>
 </html>
